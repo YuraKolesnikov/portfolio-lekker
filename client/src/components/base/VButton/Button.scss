@@ -1,0 +1,90 @@
+.Button {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 21px;
+	padding: 10px 20px;
+	color: $gray;
+	display: inline-block;
+	border: 1px solid $light-gray;
+	cursor: pointer;
+	outline: none;
+	position: relative;
+	overflow: hidden;
+	transition: color .35s ease, border-color .35s ease;
+
+	&:focus, &:active { outline: none; }
+
+	& span {
+		display: block;
+		padding: 12px 24px;
+	}
+
+	&:active:before {
+		width: 120%;
+		padding-top: 120%;
+		
+		transition: width .2s ease-out, padding-top .2s ease-out;
+	}
+
+	&:before {
+		content: "";
+  
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		
+		display: block;
+		width: 0;
+		padding-top: 0;
+			
+		border-radius: 100%;
+		
+		background-color: rgba(236, 240, 241, .3);
+		
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+
+	&:active:before {
+		background-color: rgba(163, 163, 163, .25);
+	}
+
+	&--large { padding: 10px 60px; }
+	&--block { display: block; width: 100%; }
+
+	&--outlined {
+		border: 1px solid $main;
+		background-color: #FFF;
+		transition: background-color .35s ease, border-color .35s ease, color .35s ease;
+
+		&:active:before {
+			background-color: rgba(236, 240, 241, .3);
+		}
+
+		&:hover {
+			background-color: $main;
+			border-color: $main;
+			color: #FFF;
+		}
+	}
+
+	&--filled {
+		border: 1px solid $main;
+		background-color: $main;
+		color: #FFF;
+		transition: background-color .35s ease, border-color .35s ease;
+
+		&:active:before {
+			background-color: rgba(236, 240, 241, .3);
+		}
+
+		&:hover {
+			color: #FFF;
+			background-color: darken($color: $main, $amount: 10%);
+			border-color: darken($color: $main, $amount: 10%);
+		}
+	}
+}
