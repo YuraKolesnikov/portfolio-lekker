@@ -1,0 +1,19 @@
+{
+  "name": "lekker-africa",
+  "version": "1.0.0",
+  "description": "Safari page pet project on MEVN",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "install-all": "yarn workspaces run install",
+    "client:start": "yarn workspace client run start",
+    "client:dev": "yarn workspace client run dev",
+    "client:lint": "yarn workspace client run lint:all:eslint",
+    "client:build": "yarn workspace client run build",
+    "client:clean": "yarn workspace client run clean"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
