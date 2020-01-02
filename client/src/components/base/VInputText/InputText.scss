@@ -1,0 +1,16 @@
+.InputText {
+	width: 100%;
+	font-size: 16px;
+	color: $gray;
+	padding: 16px 20px;
+	background-color: #FFF;
+	border: 1px solid #EAEAEA;
+
+	&:focus {
+		outline: none;
+	}
+
+	&--dark {
+		background-color: #F9F9F9;
+	}
+}

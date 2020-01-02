@@ -1,0 +1,16 @@
+.Star {
+	&__icon {
+		cursor: pointer;
+		height: 24px;
+		width: 24px;
+		fill: #E0E0E0;
+
+		&--active {
+			fill: $main;
+		}
+	}
+
+	&__input {
+		display: none;
+	}
+}
