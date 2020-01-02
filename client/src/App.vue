@@ -13,6 +13,9 @@
 					@change="handleStarChange"
 				/>
 				{{ rating }}
+				<v-shadow-box>
+					Hello World
+				</v-shadow-box>
 				<router-view />
 			</div>
 		</main>
@@ -21,6 +24,7 @@
 <script>
 import VTitle from '@/components/base/VTitle/VTitle'
 import VStar from '@/components/base/VStar/VStar'
+import VShadowBox from '@/components/hoc/VShadowBox'
 export default {
 	data() {
 		return {
@@ -33,7 +37,8 @@ export default {
 	},
 	components: {
 		VTitle,
-		VStar
+		VStar,
+		VShadowBox
 	},
 	methods: {
 		logData({ target, currentTarget }) {
