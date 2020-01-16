@@ -1,0 +1,43 @@
+.InputDate {
+	position: relative;
+
+	&__trigger {
+		input {
+			width: 100%;
+			font-size: 16px;
+			color: $gray;
+			padding: 16px 20px;
+			background-color: #FFF;
+			border: 1px solid $light-gray;
+			
+			&:focus {
+				outline: none;
+			}
+			
+			&--dark {
+				background-color: $extra-light-gray;
+			}
+			
+			&--error {
+				border: 1px solid $border-error;
+				background-color: $background-error;
+			}
+		}
+	}
+
+	&__icon {
+		/* TODO: Make more abstract */
+		right: 26px;
+		top: calc(50% - 13px);
+	}
+
+	&__calendar {
+		width: 50%;
+		opacity: 0;
+		transition: opacity .35s ease;
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+}

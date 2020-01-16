@@ -1,0 +1,10 @@
+.Icon {
+	fill: $faded-gray;
+	stroke: $faded-gray;
+	position: absolute;
+	
+	&__calendar {
+		width: 26px;
+		height: 26px;
+	}
+}

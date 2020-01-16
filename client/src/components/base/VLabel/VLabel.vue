@@ -10,5 +10,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./Label.scss";
+@import "./Label";
 </style>
