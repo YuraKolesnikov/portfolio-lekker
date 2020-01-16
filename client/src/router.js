@@ -20,6 +20,14 @@ const routes = [
 	{
 		path: '/checkout',
 		component: () => import(/* webpackChunkName */'./views/Checkout')
+	},
+	{
+		path: '/inputs',
+		component: () => import(/* webpackChunkName */'./views/Inputs')
+	},
+	{
+		path: '/typography',
+		component: () => import(/* webpackChunkName */'./views/Typography')
 	}
 ]
 

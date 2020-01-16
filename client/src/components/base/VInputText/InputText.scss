@@ -4,13 +4,18 @@
 	color: $gray;
 	padding: 16px 20px;
 	background-color: #FFF;
-	border: 1px solid #EAEAEA;
+	border: 1px solid $light-gray;
 
 	&:focus {
 		outline: none;
 	}
 
 	&--dark {
-		background-color: #F9F9F9;
+		background-color: $extra-light-gray;
+	}
+
+	&--error {
+		border: 1px solid $border-error;
+		background-color: $background-error;
 	}
 }

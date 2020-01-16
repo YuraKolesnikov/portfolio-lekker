@@ -2,9 +2,9 @@
 	<input 
 		:id="id"
 		type="text" 
-		class="InputText"
+		class="InputText InputText--error"
 		:value="inputValue" 
-		@input="handleInput($event, id)"
+		@input="$emit('input')"
 		:class="{'InputText--dark': dark}">
 </template>
 <script>

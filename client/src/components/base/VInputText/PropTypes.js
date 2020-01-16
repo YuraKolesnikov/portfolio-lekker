@@ -3,5 +3,5 @@ export const PropTypes = {
 	placeholder: { type: String },
 	id: { type: String, required: true },
 	dark: { type: Boolean, default: false },
-	handleInput: { type: Function, default: () => null }
+	isRequired: { type: Boolean, default: false }
 }
