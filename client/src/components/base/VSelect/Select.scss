@@ -1,0 +1,20 @@
+.Select {
+	position: relative;
+	&__trigger {
+		position: relative;
+	}
+
+	&__icon-wrapper {
+		position: absolute;
+		right: 32px;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: opacity .2s ease;
+		transform-origin: center;
+		background-color: #FFF;
+		
+		&--hidden {
+			opacity: 0;
+		}
+	}
+}

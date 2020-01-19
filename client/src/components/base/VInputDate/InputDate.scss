@@ -32,12 +32,6 @@
 	}
 
 	&__calendar {
-		width: 50%;
-		opacity: 0;
-		transition: opacity .35s ease;
-
-		&.visible {
-			opacity: 1;
-		}
+		padding: 20px;
 	}
 }

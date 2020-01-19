@@ -1,22 +1,20 @@
 <template>
-	<div class="InputDate">
-		<div class="InputDate__trigger">
-			<input type="text"  readonly>
-			<v-icon class="InputDate__icon" iconName="calendar" />
-		</div>
-		
+	<v-select type="calendar">
 
-		<!-- v-dropdown goes here -->
-		<div class="InputDate__calendar">
-			<!-- Dates go here -->
-		</div>
-	</div>
+	</v-select>
 </template>
 <script>
 import VIcon from '@/components/base/VIcon/VIcon'
+import VSelect from '@/components/base/VSelect/VSelect'
 export default {
 	components: {
-		VIcon
+		VIcon,
+		VSelect
+	},
+	data() {
+		return {
+			isDropdownOpen: false
+		}
 	}
 }
 </script>
