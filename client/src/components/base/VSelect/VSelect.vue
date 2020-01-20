@@ -14,7 +14,7 @@
 			<span 
 				v-else
 				class="Select__icon-wrapper" 
-				:class="{'Select__icon-wrapper--hidden': isDropdownOpen}">
+				:class="{'Select__icon-wrapper--open': isDropdownOpen}">
 				<v-icon icon-name="arrow" />
 			</span>
 		</div>

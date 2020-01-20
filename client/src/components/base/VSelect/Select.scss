@@ -9,12 +9,17 @@
 		right: 32px;
 		top: 50%;
 		transform: translateY(-50%);
-		transition: opacity .2s ease;
+		transition: transform .2s ease;
 		transform-origin: center;
 		background-color: #FFF;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		
-		&--hidden {
-			opacity: 0;
+		&--open {
+			transform: rotate(180deg) translateY(50%);
 		}
 	}
 }
