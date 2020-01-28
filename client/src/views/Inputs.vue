@@ -1,26 +1,42 @@
 <template>
 	<v-container>
+		{{ wtf }}
+		<p>Selected option: {{ selected }}</p>
 		<v-row flow="column">
-			<v-fieldset>
-				<v-label label="Your name" for="full_name"/>
-				<v-input-text id="full_name" />
-			</v-fieldset>
-			<v-fieldset>
-				<v-label label="Email" for="email" :isRequired="true" />
-				<v-input-text :dark="true" id="email" />
-			</v-fieldset>
-			<v-fieldset>
-				<v-label label="Date" for="date" :isRequired="true" />
-				<v-input-date />
-			</v-fieldset>
-			<v-fieldset>
-				<v-label label="Select" for="select" :isRequired="true" />
-				<v-select>
-					<template slot="dropdown-content">
-						
-					</template>
-				</v-select>
-			</v-fieldset>
+			<div class="col-6">
+				<v-fieldset>
+					<v-label label="Your name" for="full_name"/>
+					<v-input-text id="full_name" />
+				</v-fieldset>
+			</div>
+			<div class="col-6">
+				<v-fieldset>
+					<v-label label="Email" for="email" :isRequired="true" />
+					<v-input-text :dark="true" id="email" />
+				</v-fieldset>
+			</div>
+			<div class="col-6">
+				<v-fieldset>
+					<v-label label="Select" for="select" :isRequired="true" />
+					<v-select @selectOption="selectOption" :options="options"></v-select>
+				</v-fieldset>
+			</div>
+			<div class="col-6">
+				<v-fieldset>
+					<v-label label="Day" for="day" :isRequired="true" />
+					<v-select @selectOption="selectOption" :options="days" type="date"></v-select>
+				</v-fieldset>
+			</div>
+		</v-row>
+		<h1>Datepicker</h1>
+		<v-row flow="column">
+			<div class="col-6"><BirthDatePicker /></div>
+		</v-row>
+		<h1>Country selector</h1>
+		<v-row>
+			<div class="col-4">
+				<v-select :options="countries"></v-select>
+			</div>
 		</v-row>
 	</v-container>
 </template>
@@ -32,6 +48,8 @@ import VSelect from '@/components/base/VSelect/VSelect'
 import VInputDate from '@/components/base/VInputDate/VInputDate'
 import VLabel from '@/components/base/VLabel/VLabel'
 import VFieldset from '@/components/base/VFieldset/VFieldset'
+import BirthDatePicker from '@/components/ui/BirthDatePicker/BirthDatePicker'
+import { Dater } from '@/utils/dater'
 export default {
 	components: {
 		VContainer,
@@ -40,11 +58,56 @@ export default {
 		VInputDate,
 		VLabel,
 		VFieldset,
-		VSelect
+		VSelect,
+		BirthDatePicker
 	},
 	data() {
 		return {
-			publicPath: process.env.BASE_URL
+			publicPath: process.env.BASE_URL,
+			selected: '',
+			options: [
+				{ id: 1, title: 'First' },
+				{ id: 2, title: 'Second' },
+				{ id: 3, title: 'Third' }
+			],
+			countries: [
+				{ id: 'kenya', title: 'Kenya' },
+				{ id: 'tanzania', title: 'Tanzania' },
+				{ id: 'south_africe', title: 'South Africa' },
+				{ id: 'namibia', title: 'Namibia' },
+				{ id: 'botwsana', title: 'Botswana' },
+				{ id: 'madagascar', title: 'Madagascar' }
+			]
+		}
+	},
+	computed: {
+		days() {
+			let dayList = [...Array(32).keys()]
+			dayList = dayList.slice(1)
+			return dayList
+		},
+		years() {
+			const years = []
+			for (let i = 1920; i < Dater.getCurrentYear(); i++) {
+				years.push(i)
+			}
+			return years
+		},
+		months() {
+			return Dater.monthNames
+		},
+		wtf() {
+			return Dater.getDayCount(2020, 1)
+		}
+	},
+	methods: {
+		selectOption({ option, type }) {
+			console.log(option, type)
+			if (type == 'date') {
+				this.selected = option
+			} else {
+				this.selected = option.title
+			}
 		}
 	}
 }

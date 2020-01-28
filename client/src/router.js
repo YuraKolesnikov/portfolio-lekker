@@ -10,24 +10,16 @@ const routes = [
 		component: Home
 	},
 	{
-		path: '/trips/:direction',
-		component: () => import(/* webpackChunkName: "trips" */'./views/Trips')
-	},
-	{
-		path: '/trips/:direction/:id',
-		component: () => import(/* webpackChunkName */'./views/SingleTrip')
-	},
-	{
-		path: '/checkout',
-		component: () => import(/* webpackChunkName */'./views/Checkout')
-	},
-	{
 		path: '/inputs',
 		component: () => import(/* webpackChunkName */'./views/Inputs')
 	},
 	{
 		path: '/typography',
 		component: () => import(/* webpackChunkName */'./views/Typography')
+	},
+	{
+		path: '/buttons',
+		component: () => import('./views/Buttons')
 	}
 ]
 
