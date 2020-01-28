@@ -3,8 +3,7 @@
 		<div class="Select__trigger">
 			<v-input-text
 				id="select"
-				@focus="isDropdownOpen = true"
-				@blur="isDropdownOpen = false"
+				@focus="openDropdown"
 			/>
 			<span
 				v-if="type == 'calendar'"
@@ -18,30 +17,54 @@
 				<v-icon icon-name="arrow" />
 			</span>
 		</div>
-		<v-dropdown :is-dropdown-open="isDropdownOpen">
-			<div class="InputDate__calendar">
-				<slot name="dropdown-content" />
-			</div>
-		</v-dropdown>
-		
+		<div 
+			ref="dropdown"
+			tabindex="0"
+			@blur="closeDropdown"
+			class="Select__dropdown"
+			:class="{ 'Select__dropdown--open': isDropdownOpen }">
+			<ul class="Select__options" v-if="options">
+				<li 
+					:key="option.id || option" 
+					v-for="option in options" 
+					@click.self="selectOption(option, type)">
+					{{ option.title || option }}
+				</li>
+			</ul>
+			<template v-else>
+				<slot name="custom-content" />
+			</template>
+		</div>
 	</div>
 </template>
 <script>
 import VInputText from '@/components/base/VInputText/VInputText'
-import VDropdown from '@/components/hoc/VDropdown'
 import VIcon from '@/components/base/VIcon/VIcon'
 export default {
 	props: {
-		type: String
+		type: String, // calendar
+		options: Array
 	},
 	components: {
 		VInputText,
-		VDropdown,
 		VIcon
 	},
 	data() {
 		return {
 			isDropdownOpen: false
+		}
+	},
+	methods: {
+		selectOption(option, type) {
+			this.$emit('selectOption', { option, type })
+			this.closeDropdown()
+		},
+		openDropdown() {
+			this.$refs.dropdown.focus()
+			this.isDropdownOpen = true
+		},
+		closeDropdown() {
+			this.isDropdownOpen = false
 		}
 	}
 }
