@@ -4,7 +4,7 @@
 		type="text" 
 		class="InputText"
 		:value="inputValue" 
-		@input="$emit('input')"
+		@input="$emit('input', $event)"
 		@focus="$emit('focus')"
 		@blur="$emit('blur')"
 		:class="{'InputText--dark': dark}">

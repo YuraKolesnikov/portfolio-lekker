@@ -13,38 +13,35 @@
 		<div 
 			class="BirthDatePicker__dropdown"
 			:class="{ 'BirthDatePicker__dropdown--open': isDropdownOpen }">
+			<v-row>
+				<div class="col-4">
+					<label for="day">Day</label>
+					<v-input-text :id="'day'" @input="updateValue($event, 'day')" />
+				</div>
+				<div class="col-4">
+					<label for="month">Month</label>
+					<v-select :options="months" @selectOption="updateValue($event, 'month')"></v-select>
+				</div>
+				<div class="col-4">
+					<label for="year">Year</label>
+					<v-input-text :id="'year'" @input="updateValue($event, 'year')" />
+				</div>
+			</v-row>
+			<v-button @click="closeDropdown">
+				Cancel
+			</v-button>
 			<v-button @click="closeDropdown">
 				Accept
 			</v-button>
 		</div>
 	</div>
-	<!-- <v-select>
-		<template slot="custom-content">
-			<v-row>
-				<div class="col-4">
-					<v-select>
-
-					</v-select>
-				</div>
-				<div class="col-4">
-					<v-select>
-
-					</v-select>
-				</div>
-				<div class="col-4">
-					<v-select>
-
-					</v-select>
-				</div>
-			</v-row>
-		</template>
-	</v-select> -->
 </template>
 <script>
 import VInputText from '@/components/base/VInputText/VInputText'
 import VSelect from '@/components/base/VSelect/VSelect'
 import VButton from '@/components/base/VButton/VButton'
 import VIcon from '@/components/base/VIcon/VIcon'
+import { Dater } from '@/utils/dater'
 export default {
 	components: {
 		VInputText,
@@ -54,10 +51,29 @@ export default {
 	},
 	data() {
 		return {
-			isDropdownOpen: false
+			isDropdownOpen: false,
+			dateValues: {
+				day: '',
+				month: '',
+				year: ''
+			}
+		}
+	},
+	computed: {
+		months() {
+			return Dater.monthNames
 		}
 	},
 	methods: {
+		saveData() {
+			this.$emit('saveData')
+		},
+		updateValue(event, id) {
+			/* If event was fired in custom select */
+			if(!event.target) return this.dateValues[id] = event.option
+
+			this.dateValues[id] = event.target.value
+		},
 		openDropdown() { this.isDropdownOpen = true },
 		closeDropdown() { this.isDropdownOpen = false }
 	}

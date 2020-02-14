@@ -1,6 +1,8 @@
 <template>
 	<v-select type="calendar">
-
+		<template slot="dropdown-content">
+			<h2 @click="chooseDate">Hello NIBBA!</h2>
+		</template>
 	</v-select>
 </template>
 <script>
@@ -14,6 +16,13 @@ export default {
 	data() {
 		return {
 			isDropdownOpen: false
+		}
+	},
+	methods: {
+		chooseDate(e) {
+			e.preventDefault();
+			e.stopPropagation()
+			console.log(e.target.textContent)
 		}
 	}
 }
