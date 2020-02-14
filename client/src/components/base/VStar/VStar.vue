@@ -2,7 +2,7 @@
 	<div class="Star">
 		<label :for="id">
 			<svg class="Star__icon" :class="{'Star__icon--active': id <= currentRating}">
-				<use xlink:href="@/assets/icons.svg#star"></use>
+				<use xlink:href="/static/icons.svg#star"></use>
 			</svg>
 		</label>
 		<input type="radio" class="Star__input" :id="id" name="stars" @change="$emit('change', $event)">

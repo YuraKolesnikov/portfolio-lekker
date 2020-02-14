@@ -1,6 +1,6 @@
 <template>
 	<svg class="Icon" :class="`Icon__${iconName}`">
-		<use :href="`icons.svg#${iconName}`"></use>
+		<use :href="`/static/icons/icons.svg#${iconName}`"></use>
 	</svg>
 </template>
 <script>

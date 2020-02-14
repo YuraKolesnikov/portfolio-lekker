@@ -1,7 +1,5 @@
 <template>
 	<v-container>
-		{{ wtf }}
-		<p>Selected option: {{ selected }}</p>
 		<v-row flow="column">
 			<div class="col-6">
 				<v-fieldset>
