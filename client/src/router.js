@@ -15,11 +15,15 @@ const routes = [
 	},
 	{
 		path: '/typography',
-		component: () => import(/* webpackChunkName */'./views/Typography')
+		component: () => import('./views/Typography')
 	},
 	{
 		path: '/buttons',
 		component: () => import('./views/Buttons')
+	},
+	{
+		path: '/elements',
+		component: () => import ('./views/Elements')
 	}
 ]
 

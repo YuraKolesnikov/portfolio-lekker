@@ -10,6 +10,9 @@
 			<router-link to="/typography">
 				<v-button option="filled">Typography</v-button>
 			</router-link>
+			<router-link to="/elements">
+				<v-button option="filled">Elements</v-button>
+			</router-link>
 		</nav>
 		<main>
 			<div class="container">
