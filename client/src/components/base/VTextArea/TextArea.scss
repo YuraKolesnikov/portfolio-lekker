@@ -1,0 +1,12 @@
+.TextArea {
+	height: 280px;
+	width: 100%;
+	resize: none;
+	color: $gray;
+	padding: 16px 20px;
+	border: 1px solid #EAEAEA;
+
+	&:focus {
+		outline: none;
+	}
+}
