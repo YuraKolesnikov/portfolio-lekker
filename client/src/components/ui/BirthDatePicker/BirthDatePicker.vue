@@ -2,6 +2,7 @@
 	<div class="BirthDatePicker">
 		<div class="BirthDatePicker__trigger">
 			<v-input-text 
+				id="birth-date-picker-toggle"
 				@focus="openDropdown"
 			/>
 			<span
@@ -16,7 +17,7 @@
 			<v-row>
 				<div class="col-4">
 					<label for="day">Day</label>
-					<v-input-text :id="'day'" @input="updateValue($event, 'day')" />
+					<v-input-text id="day" @input="updateValue($event, 'day')" />
 				</div>
 				<div class="col-4">
 					<label for="month">Month</label>
@@ -24,7 +25,7 @@
 				</div>
 				<div class="col-4">
 					<label for="year">Year</label>
-					<v-input-text :id="'year'" @input="updateValue($event, 'year')" />
+					<v-input-text id="year" @input="updateValue($event, 'year')" />
 				</div>
 			</v-row>
 			<v-button @click="closeDropdown">
