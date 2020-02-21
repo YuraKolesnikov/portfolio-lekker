@@ -1,5 +1,8 @@
 <template>
 	<v-row>
+		<SearchControl 
+			:destination-options="destinations"
+			:duration-options="durations" />
 		<div class="col-6" v-for="card in cards" :key="card.id">
 			<BestSellerCard :card="card" />
 		</div>
@@ -7,12 +10,28 @@
 </template>
 <script>
 import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
+import SearchControl from '@/components/ui/SearchControl/SearchControl'
 export default {
 	components: {
-		BestSellerCard
+		BestSellerCard,
+		SearchControl
 	},
 	data() {
 		return {
+			destinations: [
+				{ id: 'kenya', title: 'Kenya' },
+				{ id: 'tanzania', title: 'Tanzania' },
+				{ id: 'south_africe', title: 'South Africa' },
+				{ id: 'namibia', title: 'Namibia' },
+				{ id: 'botwsana', title: 'Botswana' },
+				{ id: 'madagascar', title: 'Madagascar' }
+			],
+			durations: [
+				{ id: 1, title: 'up to 5 days' },
+				{ id: 2, title: '6-9 days' },
+				{ id: 3, title: '10-14 days' },
+				{ id: 4, title: 'over 14 days' }
+			],
 			cards: [
 				{
 					id: 1,
