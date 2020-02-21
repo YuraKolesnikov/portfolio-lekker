@@ -46,4 +46,20 @@
 			transform: scale(1);
 		}
 	}
+
+	&__options {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__option {
+		color: #8B8B8B;
+		padding: 10px 0;
+		cursor: pointer;
+
+		&:hover {
+			color: #000;
+		}
+	}
 }
