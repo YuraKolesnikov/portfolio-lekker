@@ -1,11 +1,13 @@
 .HeroStatic {
+	width: 100%;
 	color: #FFF;
 	height: 600px;
 	display: flex;
 	flex-flow: column;
 	align-items: center;
 	justify-content: center;	
-	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
 
 	&__title {
 		font-weight: 500;
