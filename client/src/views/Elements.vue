@@ -3,18 +3,21 @@
 		<SearchControl 
 			:destination-options="destinations"
 			:duration-options="durations" />
-		<TripCard v-for="trip in trips" :key="trip.id" :trip="trip" />
+		<!-- <TripCard v-for="trip in trips" :key="trip.id" :trip="trip" /> -->
 		<!-- <div class="col-6" v-for="card in cards" :key="card.id">
 			<BestSellerCard :card="card" />
 		</div> -->
+		<Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" />
 	</v-row>
 </template>
 <script>
+import Itinerary from '@/components/ui/Itinerary/Itinerary'
 import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import TripCard from '@/components/ui/TripCard/TripCard'
 export default {
 	components: {
+		Itinerary,
 		BestSellerCard,
 		SearchControl,
 		TripCard
@@ -68,6 +71,19 @@ export default {
 					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean? Or 15,000m2 of rolling savannah in the Serengeti.',
 					img_url: 'https://images.unsplash.com/photo-1521731142447-f70597562b98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
 				},
+			],
+			itinerary: [
+				{ id: 1, day: 1, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 2, day: 2, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 3, day: 3, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 4, day: 4, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 5, day: 5, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 6, day: 6, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 7, day: 7, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 8, day: 8, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 9, day: 9, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 10, day: 10, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' },
+				{ id: 11, day: 11, text: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?' }
 			]
 		}
 	}
