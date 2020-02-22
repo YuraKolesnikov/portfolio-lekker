@@ -17,15 +17,21 @@
 			<v-row>
 				<div class="col-4">
 					<label for="day">Day</label>
-					<v-input-text id="day" @input="updateValue($event, 'day')" />
+					<v-input-text id="day" @input="updateValue($event, 'day')" :input-value="dateValues.day" />
 				</div>
 				<div class="col-4">
 					<label for="month">Month</label>
-					<v-select :options="months" @selectOption="updateValue($event, 'month')"></v-select>
+					<v-select 
+						:options="months" 
+						:select-value="dateValues.month"
+						@selectOption="updateValue($event, 'month')"></v-select>
 				</div>
 				<div class="col-4">
 					<label for="year">Year</label>
-					<v-input-text id="year" @input="updateValue($event, 'year')" />
+					<v-input-text 
+						id="year" 
+						:input-value="dateValues.year"
+						@input="updateValue($event, 'year')" />
 				</div>
 			</v-row>
 			<v-button @click="closeDropdown">

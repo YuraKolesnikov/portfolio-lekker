@@ -3,14 +3,22 @@
 		<v-row class="SearchControl__main">
 			<div class="col-4">
 				<v-label label="Destination" for="seach_destination" :isRequired="true" />
-				<v-select :options="destinationOptions"></v-select>
+				<v-select 
+					:options="destinationOptions"
+					:select-value="searchValues.destination.title"
+					@selectOption="updateValue($event, 'destination')"></v-select>
 			</div>
 			<div class="col-4">
 				<v-label label="Duration" for="search_duration" :isRequired="true" />
-				<v-select :options="durationOptions"></v-select>
+				<v-select 
+					:options="durationOptions"
+					:select-value="searchValues.duration.title"
+					@selectOption="updateValue($event, 'duration')"></v-select>
 			</div>
 			<div class="col-3">
-				<v-button class="SearchControl__button">Find my trip</v-button>
+				<v-button 
+					@click="searchPackage"
+					class="SearchControl__button">Find my trip</v-button>
 			</div>
 		</v-row>
 	</div>
@@ -28,6 +36,35 @@ export default {
 		VSelect,
 		VButton,
 		VLabel
+	},
+	data() {
+		return {
+			searchValues: {
+				destination: this.destinationOptions[0],
+				duration: this.durationOptions[0]
+			}
+		}
+	},
+	methods: {
+		searchPackage() {
+			const { destination, duration } = this.searchValues
+
+			const payload = {
+				destination: destination.id,
+				duration: duration.id
+			}
+
+			/* Check for undefined or add default */
+
+			console.log('Looking trip package with these params... ', payload)
+		},
+		updateValue(event, id) {
+			console.log(event)
+			/* If event was fired in custom select */
+			if(!event.target) return this.searchValues[id] = event.option
+
+			this.searchValues[id] = event.target.value
+		},
 	}
 }
 </script>

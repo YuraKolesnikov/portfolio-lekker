@@ -3,6 +3,7 @@
 		<div class="Select__trigger">
 			<v-input-text
 				id="select"
+				:value="selectValue"
 				@focus="openDropdown"
 			/>
 			<span
@@ -44,7 +45,8 @@ import VIcon from '@/components/base/VIcon/VIcon'
 export default {
 	props: {
 		type: String, // calendar
-		options: Array
+		options: Array,
+		selectValue: String
 	},
 	components: {
 		VInputText,
