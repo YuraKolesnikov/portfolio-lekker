@@ -7,17 +7,20 @@
 		<!-- <div class="col-6" v-for="card in cards" :key="card.id">
 			<BestSellerCard :card="card" />
 		</div> -->
-		<Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" />
+		<!-- <Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" /> -->
+		<Accordion />
 	</v-row>
 </template>
 <script>
 import Itinerary from '@/components/ui/Itinerary/Itinerary'
+import Accordion from '@/components/ui/Accordion/Accordion'
 import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import TripCard from '@/components/ui/TripCard/TripCard'
 export default {
 	components: {
 		Itinerary,
+		Accordion,
 		BestSellerCard,
 		SearchControl,
 		TripCard

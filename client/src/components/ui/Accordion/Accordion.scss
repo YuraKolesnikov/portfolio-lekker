@@ -1,0 +1,28 @@
+.Accordion {
+	width: 100%;
+
+	&__item {
+		padding: 10px 0;
+		border-bottom: 1px solid #ECECEC;
+	}
+
+	&__toggle {
+		font-weight: 500;
+		font-size: 24px;
+		line-height: 28px;
+		cursor: pointer;
+		padding: 10px 0;
+		user-select: none;
+		color: $gray;
+
+		&--open {
+			color: #000;
+		}
+	}
+
+	&__body {
+		color: $gray;
+		font-size: 18px;
+		line-height: 21px;
+	}
+}
