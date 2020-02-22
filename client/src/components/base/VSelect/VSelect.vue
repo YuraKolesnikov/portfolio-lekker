@@ -25,6 +25,7 @@
 			:class="{ 'Select__dropdown--open': isDropdownOpen }">
 			<ul class="Select__options" v-if="options">
 				<li 
+					class="Select__option"
 					:key="option.id || option" 
 					v-for="option in options" 
 					@click.self="selectOption(option, type)">

@@ -15,6 +15,7 @@
 			</router-link>
 		</nav>
 		<main>
+			<HeroStatic />
 			<div class="container">
 				<router-view />
 			</div>
@@ -23,9 +24,11 @@
 </template>
 <script>
 import VButton from '@/components/base/VButton/VButton'
+import HeroStatic from '@/components/ui/HeroStatic/HeroStatic'
 export default {
 	components: {
-		VButton
+		VButton,
+		HeroStatic
 	}
 
 }

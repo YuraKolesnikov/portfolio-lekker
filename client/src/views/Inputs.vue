@@ -19,12 +19,6 @@
 					<v-select @selectOption="selectOption" :options="options"></v-select>
 				</v-fieldset>
 			</div>
-			<div class="col-6">
-				<v-fieldset>
-					<v-label label="Day" for="day" :isRequired="true" />
-					<v-select @selectOption="selectOption" :options="days" type="date"></v-select>
-				</v-fieldset>
-			</div>
 		</v-row>
 		<h1>Datepicker</h1>
 		<v-row flow="column">
@@ -36,6 +30,8 @@
 				<v-select :options="countries"></v-select>
 			</div>
 		</v-row>
+		<h1>Textarea</h1>
+		<v-text-area />
 	</v-container>
 </template>
 <script>
@@ -46,6 +42,7 @@ import VSelect from '@/components/base/VSelect/VSelect'
 import VInputDate from '@/components/base/VInputDate/VInputDate'
 import VLabel from '@/components/base/VLabel/VLabel'
 import VFieldset from '@/components/base/VFieldset/VFieldset'
+import VTextArea from '@/components/base/VTextArea/VTextArea'
 import BirthDatePicker from '@/components/ui/BirthDatePicker/BirthDatePicker'
 import { Dater } from '@/utils/dater'
 export default {
@@ -57,6 +54,7 @@ export default {
 		VLabel,
 		VFieldset,
 		VSelect,
+		VTextArea,
 		BirthDatePicker
 	},
 	data() {
@@ -70,7 +68,7 @@ export default {
 			countries: [
 				{ id: 'kenya', title: 'Kenya' },
 				{ id: 'tanzania', title: 'Tanzania' },
-				{ id: 'south_africe', title: 'South Africa' },
+				{ id: 'south_africa', title: 'South Africa' },
 				{ id: 'namibia', title: 'Namibia' },
 				{ id: 'botwsana', title: 'Botswana' },
 				{ id: 'madagascar', title: 'Madagascar' }
