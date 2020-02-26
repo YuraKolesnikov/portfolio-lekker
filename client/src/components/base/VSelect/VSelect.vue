@@ -3,6 +3,7 @@
 		<div class="Select__trigger">
 			<v-input-text
 				id="select"
+				:style="`height: ${computedHeight}px`"
 				:value="selectValue"
 				@focus="openDropdown"
 			/>
@@ -46,7 +47,8 @@ export default {
 	props: {
 		type: String, // calendar
 		options: Array,
-		selectValue: String
+		selectValue: String,
+		computedHeight: Number
 	},
 	components: {
 		VInputText,

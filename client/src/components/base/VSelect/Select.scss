@@ -1,6 +1,8 @@
 .Select {
 	position: relative;
+
 	&__trigger {
+		min-height: 100%;
 		position: relative;
 	}
 

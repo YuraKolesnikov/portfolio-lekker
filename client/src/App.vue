@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
-		<nav style="display: flex; width: 100%; justify-content: center">
+		<Navbar />
+		<!-- <nav style="display: flex; width: 100%; justify-content: center">
 			<router-link to="/buttons">
 				<v-button option="filled">Buttons</v-button>
 			</router-link>
@@ -13,7 +14,7 @@
 			<router-link to="/elements">
 				<v-button option="filled">Elements</v-button>
 			</router-link>
-		</nav>
+		</nav> -->
 		<main>
 			<HeroStatic />
 			<div class="container">
@@ -25,10 +26,12 @@
 <script>
 import VButton from '@/components/base/VButton/VButton'
 import HeroStatic from '@/components/ui/HeroStatic/HeroStatic'
+import Navbar from '@/components/TheNavbar/TheNavbar'
 export default {
 	components: {
 		VButton,
-		HeroStatic
+		HeroStatic,
+		Navbar
 	}
 
 }

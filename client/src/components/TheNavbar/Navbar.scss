@@ -1,0 +1,22 @@
+.Navbar {
+	width: 100%;
+	height: 100px;
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	background-color: #FFF;
+
+	&__logo {
+
+	}
+
+	&__main {
+		width: 500px;
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+	}
+}

@@ -16,8 +16,8 @@
 <script>
 import VButton from '@/components/base/VButton/VButton'
 export default {
-	components: {
-		VButton
-	}
+  components: {
+    VButton
+  }
 }
 </script>
