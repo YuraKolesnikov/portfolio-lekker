@@ -46,4 +46,18 @@
 			transition: opacity .2s ease, transform .2s ease;
 		}
 	}
+
+	&__controls {
+		margin-top: 15px;
+	}
+
+	&__button {
+		float: right;
+		&:last-child {
+			margin-right: 15px;
+		}
+		& span {
+			padding: 0;
+		}
+	}
 }

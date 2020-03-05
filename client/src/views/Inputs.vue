@@ -32,6 +32,11 @@
 		</v-row>
 		<h1>Textarea</h1>
 		<v-text-area />
+		<h1>Telephone codes</h1>
+		<v-select 
+			:options="codesFormatted" 
+			:select-value="dialCodeLabel"
+			@selectOption="updateDialCode"></v-select>
 	</v-container>
 </template>
 <script>
@@ -45,6 +50,7 @@ import VFieldset from '@/components/base/VFieldset/VFieldset'
 import VTextArea from '@/components/base/VTextArea/VTextArea'
 import BirthDatePicker from '@/components/ui/BirthDatePicker/BirthDatePicker'
 import { Dater } from '@/utils/dater'
+import codes from '@/assets/data/dial-codes.json'
 export default {
 	components: {
 		VContainer,
@@ -60,6 +66,8 @@ export default {
 	data() {
 		return {
 			selected: '',
+			dialcode: codes[0].dial_code,
+			dialCodeLabel: `${codes[0].name} (${codes[0].dial_code})`,
 			options: [
 				{ id: 1, title: 'First' },
 				{ id: 2, title: 'Second' },
@@ -93,6 +101,12 @@ export default {
 		},
 		wtf() {
 			return Dater.getDayCount(2020, 1)
+		},
+		codesFormatted() {
+			return codes.map(item => ({
+				id: item.dial_code,
+				title: `${item.name} (${item.dial_code})`
+			}))
 		}
 	},
 	methods: {
@@ -103,6 +117,10 @@ export default {
 			} else {
 				this.selected = option.title
 			}
+		},
+		updateDialCode(res) {
+			this.dialcode = res.option.id
+			this.dialCodeLabel = res.option.title
 		}
 	}
 }

@@ -34,12 +34,14 @@
 						@input="updateValue($event, 'year')" />
 				</div>
 			</v-row>
-			<v-button @click="closeDropdown">
-				Cancel
-			</v-button>
-			<v-button @click="closeDropdown">
-				Accept
-			</v-button>
+			<div class="BirthDatePicker__controls">
+				<v-button class="BirthDatePicker__button" option="outlined" @click="closeDropdown">
+					Cancel
+				</v-button>
+				<v-button class="BirthDatePicker__button" @click="closeDropdown">
+					Accept
+				</v-button>
+			</div>
 		</div>
 	</div>
 </template>
