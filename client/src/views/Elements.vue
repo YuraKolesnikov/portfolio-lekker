@@ -1,14 +1,14 @@
 <template>
 	<v-row>
-		<SearchControl 
+		<!-- <SearchControl 
 			:destination-options="destinations"
 			:duration-options="durations" />
-		<!-- <TripCard v-for="trip in trips" :key="trip.id" :trip="trip" /> -->
-		<!-- <div class="col-6" v-for="card in cards" :key="card.id">
+		<TripCard v-for="trip in trips" :key="trip.id" :trip="trip" />
+		<div class="col-6" v-for="card in cards" :key="card.id">
 			<BestSellerCard :card="card" />
-		</div> -->
-		<!-- <Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" /> -->
-		<Accordion />
+		</div>
+		<Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" />
+		<Accordion /> -->
 	</v-row>
 </template>
 <script>

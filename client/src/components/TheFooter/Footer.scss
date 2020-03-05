@@ -1,0 +1,32 @@
+.Footer {
+	background-color: $dark-gray;
+	color: #FFF;
+	padding: 50px 0;
+
+	& p {
+		max-width: 600px;
+	}
+
+	& p, &__second-line {
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	&__second-line {
+		max-width: 650px;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+@media (max-width: 576px) {
+	.Footer {
+
+		&__second-line {
+			flex-flow: column;
+			& span {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

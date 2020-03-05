@@ -16,7 +16,7 @@
 			</router-link>
 		</nav> -->
 		<main style="padding-top: 100px">
-			<v-container>
+			<!-- <v-container>
 				<v-row>
 					<div class="col-12">
 						<AccomodationPaginator 
@@ -24,24 +24,27 @@
 							@updateCurrentTab="updateCurrentTab" />
 					</div>
 				</v-row>
-			</v-container>
+			</v-container> -->
 			<!-- <HeroStatic /> -->
 			<div class="container">
 				<router-view />
 			</div>
 		</main>
+		<Footer />
 	</div>
 </template>
 <script>
 import VButton from '@/components/base/VButton/VButton'
 import HeroStatic from '@/components/ui/HeroStatic/HeroStatic'
 import Navbar from '@/components/TheNavbar/TheNavbar'
+import Footer from '@/components/TheFooter/TheFooter'
 import AccomodationPaginator from '@/components/ui/AccommodationPaginator/AccommodationPaginator'
 export default {
 	components: {
 		VButton,
 		HeroStatic,
 		Navbar,
+		Footer,
 		AccomodationPaginator
 	},
 	data() {
