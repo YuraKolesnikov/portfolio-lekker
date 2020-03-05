@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<!-- <Navbar /> -->
+		<Navbar />
 		<!-- <nav style="display: flex; width: 100%; justify-content: center">
 			<router-link to="/buttons">
 				<v-button option="filled">Buttons</v-button>
@@ -15,7 +15,7 @@
 				<v-button option="filled">Elements</v-button>
 			</router-link>
 		</nav> -->
-		<main style="padding-top: 100px">
+		<main>
 			<!-- <v-container>
 				<v-row>
 					<div class="col-12">
@@ -60,3 +60,14 @@ export default {
 	}
 }
 </script>
+<style lang="scss">
+#app {
+	display: flex;
+	flex-flow: column;
+}
+main {
+	padding-top: 100px;
+	flex-grow: 1;
+	min-height: 100vh;
+}
+</style>
