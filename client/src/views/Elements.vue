@@ -33,13 +33,15 @@ export default {
 				{ id: 'south_africe', title: 'South Africa' },
 				{ id: 'namibia', title: 'Namibia' },
 				{ id: 'botwsana', title: 'Botswana' },
-				{ id: 'madagascar', title: 'Madagascar' }
+				{ id: 'madagascar', title: 'Madagascar' },
+				{ id: '', title: 'I don\'t mind' }
 			],
 			durations: [
 				{ id: 1, title: 'up to 5 days' },
 				{ id: 2, title: '6-9 days' },
 				{ id: 3, title: '10-14 days' },
-				{ id: 4, title: 'over 14 days' }
+				{ id: 4, title: 'over 14 days' },
+				{ id: '', title: 'I don\'t mind' }
 			],
 			trips: [
 				{
