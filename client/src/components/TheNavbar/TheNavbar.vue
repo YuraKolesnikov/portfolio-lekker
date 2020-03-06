@@ -3,12 +3,21 @@
 		<div class="Navbar__logo">
 			LEKKER
 		</div>
+		<div style="display: flex; align-items: center; justify-content: space-between; width: 700px">
+			<router-link to="/">Home</router-link>
+			<router-link to="/buttons">Buttons</router-link>
+			<router-link to="/elements">Elements</router-link>
+			<router-link to="/inputs">Inputs</router-link>
+			<router-link to="/trips">Trips</router-link>
+			<router-link to="/single-trip">Single trip</router-link>
+			<router-link to="/checkout">Checkout</router-link>
+		</div>
 		<div class="Navbar__main">
-			<v-select 
+			<!-- <v-select 
 				:options="langs"
 				@selectOption="chooseLang"
 				:select-value="selectValue"
-				:computed-height='navbarHeight'></v-select>
+				:computed-height='navbarHeight'></v-select> -->
 			<v-button option="outlined">Request a callback</v-button>
 		</div>
 	</nav>

@@ -20,6 +20,10 @@
 			<h5 class="OrderSummary__title">5 star</h5>
 			<p class="OrderSummary__name">Rating</p>
 		</div>
+		<div class="OrderSummary__item">
+			<h5 class="OrderSummary__title">$ 980</h5>
+			<p class="OrderSummary__name">Price (per person)</p>
+		</div>
 	</div>
 </template>
 <style lang="scss">

@@ -21,14 +21,12 @@
 					<div class="col-12">
 						<AccomodationPaginator 
 							:current-tab="currentTab"
-							@updateCurrentTab="updateCurrentTab" />
+							 />
 					</div>
 				</v-row>
 			</v-container> -->
 			<!-- <HeroStatic /> -->
-			<div class="container">
-				<router-view />
-			</div>
+			<router-view />
 		</main>
 		<Footer />
 	</div>
@@ -49,7 +47,7 @@ export default {
 	},
 	data() {
 		return {
-			currentTab: 5
+			
 		}
 	},
 	methods: {

@@ -22,8 +22,12 @@ const routes = [
 		component: () => import('./views/Buttons')
 	},
 	{
-		path: '/elements',
-		component: () => import ('./views/Elements')
+		path: '/trips',
+		component: () => import('./views/Trips')
+	},
+	{
+		path: '/single-trip',
+		component: () => import('./views/SingleTrip')
 	}
 ]
 
