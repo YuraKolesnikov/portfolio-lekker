@@ -1,18 +1,25 @@
 <template>
 	<v-row>
-		<!-- <SearchControl 
+		<DestinationsSelector />
+		<SearchControl 
 			:destination-options="destinations"
 			:duration-options="durations" />
+		<v-title size="md">Or pick one of our bestsellers</v-title>
+		<!-- 
 		<TripCard v-for="trip in trips" :key="trip.id" :trip="trip" />
 		<div class="col-6" v-for="card in cards" :key="card.id">
 			<BestSellerCard :card="card" />
 		</div>
-		<Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" />
-		<Accordion /> -->
-		<div style="padding-left: 40px">
+		<Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" /> -->
+		<!-- <Accordion />
+		<div class="col-12 d-flex align-items-center justify-content-between py-5">
+			<v-title size="lg">Total Cost</v-title>
+			<span style="font-size: 48px; line-height: 56px;">$ 1450</span>
+		</div>
+		<div class="col-12">
 			<v-title size="md" class="mb-5">Best of South Africa</v-title>
 		</div>
-		<OrderSummary />
+		<OrderSummary /> -->
 	</v-row>
 </template>
 <script>
@@ -23,6 +30,7 @@ import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import TripCard from '@/components/ui/TripCard/TripCard'
 import VTitle from '@/components/base/VTitle/VTitle'
 import OrderSummary from '@/components/ui/OrderSummary/OrderSummary'
+import DestinationsSelector from '@/components/ui/DestinationsSelector/DestinationsSelector'
 export default {
 	components: {
 		Itinerary,
@@ -31,7 +39,8 @@ export default {
 		SearchControl,
 		TripCard,
 		VTitle,
-		OrderSummary
+		OrderSummary,
+		DestinationsSelector
 	},
 	data() {
 		return {
