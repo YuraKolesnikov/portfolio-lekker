@@ -1,14 +1,18 @@
 <template>
 	<div class="SearchControl">
 		<v-row class="SearchControl__main">
-			<div class="col-4">
-				<v-label label="Destination" for="seach_destination" :isRequired="true" />
+			<div class="col-3">
+				<v-label label="Destination" for="search_destination" :isRequired="true" />
 				<v-select 
 					:options="destinationOptions"
 					:select-value="searchValues.destination.title"
 					@selectOption="updateValue($event, 'destination')"></v-select>
 			</div>
-			<div class="col-4">
+			<div class="col-3">
+				<v-label label="Number of passengers" for="search_passenger_count" :isRequired="true" />
+				<v-input-text id="passenger_count" :inputValue="searchValues.passengerCount" @input="updateValue($event, 'passengerCount')" />
+			</div>
+			<div class="col-3">
 				<v-label label="Duration" for="search_duration" :isRequired="true" />
 				<v-select 
 					:options="durationOptions"
@@ -25,6 +29,7 @@
 </template>
 <script>
 import VSelect from '@/components/base/VSelect/VSelect'
+import VInputText from '@/components/base/VInputText/VInputText'
 import VButton from '@/components/base/VButton/VButton'
 import VLabel from '@/components/base/VLabel/VLabel'
 export default {
@@ -34,6 +39,7 @@ export default {
 	},
 	components: {
 		VSelect,
+		VInputText,
 		VButton,
 		VLabel
 	},
@@ -41,16 +47,18 @@ export default {
 		return {
 			searchValues: {
 				destination: this.destinationOptions[0],
+				passengerCount: '',
 				duration: this.durationOptions[0]
 			}
 		}
 	},
 	methods: {
 		searchPackage() {
-			const { destination, duration } = this.searchValues
+			const { destination, duration, passengerCount } = this.searchValues
 
 			const payload = {
 				destination: destination.id,
+				passenger_count: passengerCount,
 				duration: duration.id
 			}
 
