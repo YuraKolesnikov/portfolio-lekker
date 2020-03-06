@@ -24,5 +24,15 @@
 		color: $gray;
 		font-size: 18px;
 		line-height: 21px;
+		text-align: justify;
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transition: all .35s ease;
+
+		&.open {
+			opacity: 1;
+			max-height: 600px;
+		}
 	}
 }
