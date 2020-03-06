@@ -9,6 +9,10 @@
 		</div>
 		<Itinerary v-for="item in itinerary" :key="item.day" :itinerary="item" />
 		<Accordion /> -->
+		<div style="padding-left: 40px">
+			<v-title size="md" class="mb-5">Best of South Africa</v-title>
+		</div>
+		<OrderSummary />
 	</v-row>
 </template>
 <script>
@@ -17,13 +21,17 @@ import Accordion from '@/components/ui/Accordion/Accordion'
 import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import TripCard from '@/components/ui/TripCard/TripCard'
+import VTitle from '@/components/base/VTitle/VTitle'
+import OrderSummary from '@/components/ui/OrderSummary/OrderSummary'
 export default {
 	components: {
 		Itinerary,
 		Accordion,
 		BestSellerCard,
 		SearchControl,
-		TripCard
+		TripCard,
+		VTitle,
+		OrderSummary
 	},
 	data() {
 		return {
