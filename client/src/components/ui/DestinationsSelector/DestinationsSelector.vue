@@ -6,7 +6,7 @@
 				<div class="col-5">
 					<Accordion :options="options" />
 				</div>
-				<div class="col-6 offset-1">
+				<div class="col-6 offset-1 mt-4">
 					<img src="static/img/kenya.png" alt="" style="height: 600px">
 				</div>
 			</v-row>
