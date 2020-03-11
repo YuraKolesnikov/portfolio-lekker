@@ -1,14 +1,26 @@
 <template>
-	<v-container>
-		<SearchControl 
-			:destination-options="destinations" 
-			:duration-options="durations" />
-		<v-row>
-			<div class="col-12" v-for="trip in trips" :key="trip.id">
-				<TripCard :trip="trip" />
-			</div>
-		</v-row>
-	</v-container>
+	<div class="trips">
+		<section class="search">
+			<v-container>
+				<v-row>
+					<div class="col-12">
+						<div class="search-control-wrapper">
+							<SearchControl 
+							:destination-options="destinations" 
+							:duration-options="durations" />
+						</div>
+					</div>
+				</v-row>
+			</v-container>
+		</section>
+		<v-container>
+			<v-row>
+				<div class="col-12" v-for="trip in trips" :key="trip.id">
+					<TripCard :trip="trip" />
+				</div>
+			</v-row>
+		</v-container>
+	</div>
 </template>
 <script>
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
@@ -60,3 +72,10 @@ export default {
 	}
 }
 </script>
+<style lang="scss">
+.search-control-wrapper {
+	position: relative;
+	bottom: 80px;
+	z-index: 100;
+}
+</style>
