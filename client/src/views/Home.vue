@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+		<Hero />
 		<section class="destinations">
 			<v-container>
 				<DestinationsSelector />
@@ -24,11 +25,13 @@
 	</div>
 </template>
 <script>
+import Hero from '@/components/ui/HeroStatic/HeroStatic'
 import DestinationsSelector from '@/components/ui/DestinationsSelector/DestinationsSelector'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import VTitle from '@/components/base/VTitle/VTitle'
 export default {
 	components: {
+		Hero,
 		DestinationsSelector,
 		SearchControl,
 		VTitle

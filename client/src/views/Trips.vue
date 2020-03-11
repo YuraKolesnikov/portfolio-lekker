@@ -1,5 +1,6 @@
 <template>
 	<div class="trips">
+		<Hero />
 		<section class="search">
 			<v-container>
 				<v-row>
@@ -23,10 +24,12 @@
 	</div>
 </template>
 <script>
+import Hero from '@/components/ui/HeroStatic/HeroStatic'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import TripCard from '@/components/ui/TripCard/TripCard'
 export default {
 	components: {
+		Hero,
 		SearchControl,
 		TripCard
 	},
