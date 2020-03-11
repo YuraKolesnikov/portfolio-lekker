@@ -17,8 +17,11 @@
 		</section>
 		<section class="bestsellers">
 			<v-container>
+				<v-title size="md" class="mb-5">Or pick one of our bestsellers</v-title>
 				<v-row>
-					<v-title size="md">Or pick one of our bestsellers</v-title>
+					<div class="col-6" v-for="card in bestsellers" :key="card.id">
+						<BestSellerCard :card="card" />
+					</div>
 				</v-row>
 			</v-container>
 		</section>
@@ -29,12 +32,14 @@ import Hero from '@/components/ui/HeroStatic/HeroStatic'
 import DestinationsSelector from '@/components/ui/DestinationsSelector/DestinationsSelector'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import VTitle from '@/components/base/VTitle/VTitle'
+import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
 export default {
 	components: {
 		Hero,
 		DestinationsSelector,
 		SearchControl,
-		VTitle
+		VTitle,
+		BestSellerCard
 	},
 	data() {
 		return {
@@ -53,6 +58,20 @@ export default {
 				{ id: 3, title: '10-14 days' },
 				{ id: 4, title: 'over 14 days' },
 				{ id: '', title: 'I don\'t mind' }
+			],
+			bestsellers: [
+				{ 
+					id: 1, 
+					title: 'Best of South Africa', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/kenya.png'
+				},
+				{ 
+					id: 2, 
+					title: 'Best of Namibia', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/trip-card-img.png'
+				}
 			]
 		}
 	}

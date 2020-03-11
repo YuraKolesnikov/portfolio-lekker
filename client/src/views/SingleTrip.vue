@@ -46,11 +46,19 @@
 				<AccommodationPaginator :current-tab="currentTab" @updateCurrentTab="updateCurrentTab" />
 			</v-container>
 		</section>
+		<v-container>
+			<v-row>
+				<div class="col-4 offset-4">
+					<v-button size="block">Book now</v-button>
+				</div>
+			</v-row>
+		</v-container>
 	</div>
 </template>
 <script>
 import Hero from '@/components/ui/HeroStatic/HeroStatic'
 import VTitle from '@/components/base/VTitle/VTitle'
+import VButton from '@/components/base/VButton/VButton'
 import VStar from '@/components/base/VStar/VStar'
 import OrderSummary from '@/components/ui/OrderSummary/OrderSummary'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
@@ -60,6 +68,7 @@ export default {
 	components: {
 		Hero,
 		VTitle,
+		VButton,
 		VStar,
 		SearchControl,
 		AccommodationPaginator,

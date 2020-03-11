@@ -1,11 +1,10 @@
 <template>
 	<nav class="Navbar">
 		<div class="Navbar__logo">
-			LEKKER
+			<img src="static/img/logo.svg" alt="">
 		</div>
 		<div style="display: flex; align-items: center; justify-content: space-between; width: 700px">
 			<router-link to="/">Home</router-link>
-			<router-link to="/inputs">Inputs</router-link>
 			<router-link to="/trips">Trips</router-link>
 			<router-link to="/single-trip">Single trip</router-link>
 			<router-link to="/checkout">Checkout</router-link>

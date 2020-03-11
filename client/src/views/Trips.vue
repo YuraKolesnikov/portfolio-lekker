@@ -20,16 +20,23 @@
 					<TripCard :trip="trip" />
 				</div>
 			</v-row>
+			<v-row class="pb-5">
+				<div class="col-4 offset-4">
+					<v-button option="outlined" size="block">Show more</v-button>
+				</div>
+			</v-row>
 		</v-container>
 	</div>
 </template>
 <script>
 import Hero from '@/components/ui/HeroStatic/HeroStatic'
+import VButton from '@/components/base/VButton/VButton'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import TripCard from '@/components/ui/TripCard/TripCard'
 export default {
 	components: {
 		Hero,
+		VButton,
 		SearchControl,
 		TripCard
 	},
