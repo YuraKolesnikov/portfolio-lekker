@@ -79,6 +79,6 @@ export default {
 .search-control-wrapper {
 	position: relative;
 	bottom: 80px;
-	z-index: 100;
+	z-index: 1;
 }
 </style>

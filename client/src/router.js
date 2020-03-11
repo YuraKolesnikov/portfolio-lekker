@@ -18,10 +18,6 @@ const routes = [
 		component: () => import('./views/Typography')
 	},
 	{
-		path: '/buttons',
-		component: () => import('./views/Buttons')
-	},
-	{
 		path: '/trips',
 		component: () => import('./views/Trips')
 	},
