@@ -5,8 +5,6 @@
 		</div>
 		<div style="display: flex; align-items: center; justify-content: space-between; width: 700px">
 			<router-link to="/">Home</router-link>
-			<router-link to="/buttons">Buttons</router-link>
-			<router-link to="/elements">Elements</router-link>
 			<router-link to="/inputs">Inputs</router-link>
 			<router-link to="/trips">Trips</router-link>
 			<router-link to="/single-trip">Single trip</router-link>
