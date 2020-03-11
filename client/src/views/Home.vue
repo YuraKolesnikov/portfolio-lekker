@@ -4,10 +4,12 @@
 			<v-container>
 				<DestinationsSelector />
 				<v-row>
-					<div class="search-control-wrapper">
-						<SearchControl 
-							:destination-options="destinations" 
-							:duration-options="durations" />
+					<div class="col-12">
+						<div class="search-control-wrapper">
+							<SearchControl 
+								:destination-options="destinations" 
+								:duration-options="durations" />
+						</div>
 					</div>
 				</v-row>
 			</v-container>
@@ -53,7 +55,7 @@ export default {
 	}
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .destinations {
 	padding: 100px 0 0 0;
 }
