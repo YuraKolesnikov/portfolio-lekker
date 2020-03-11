@@ -4,17 +4,19 @@
 			<div class="col-3">
 				<v-label label="Destination" for="search_destination" :isRequired="true" />
 				<v-select 
+					class="SearchControl__input"
 					:options="destinationOptions"
 					:select-value="searchValues.destination.title"
 					@selectOption="updateValue($event, 'destination')"></v-select>
 			</div>
 			<div class="col-3">
 				<v-label label="Number of passengers" for="search_passenger_count" :isRequired="true" />
-				<v-input-text id="passenger_count" :inputValue="searchValues.passengerCount" @input="updateValue($event, 'passengerCount')" />
+				<v-input-text class="SearchControl__input" id="passenger_count" :inputValue="searchValues.passengerCount" @input="updateValue($event, 'passengerCount')" />
 			</div>
 			<div class="col-3">
 				<v-label label="Duration" for="search_duration" :isRequired="true" />
 				<v-select 
+					class="SearchControl__input"
 					:options="durationOptions"
 					:select-value="searchValues.duration.title"
 					@selectOption="updateValue($event, 'duration')"></v-select>
