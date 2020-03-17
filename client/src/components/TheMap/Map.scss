@@ -1,0 +1,54 @@
+.Map {
+	position: relative;
+	&__img {
+
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__checkpoint {
+		position: absolute;
+		display: flex;
+		align-items: center;
+	}
+
+	&__checkpoint-dot {
+		content: "";
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		border: 5px solid $gray;
+		background-color: black;
+
+		&:hover + .Map__checkpoint-tooltip { 
+			opacity: 1; 
+			z-index: 10;
+		}
+	}
+
+	&__checkpoint-tooltip {
+		background-color: #FFF;
+		padding: 15px 22px;
+		opacity: 0.95;
+		box-shadow: 0px 0px 40px rgba(174, 174, 174, 0.25);
+		position: relative;
+		bottom: 60px;
+		opacity: 0;
+		z-index: 0;
+		transition: opacity .35s ease, z-index .35s ease;
+		
+		&:before {
+			content: "";
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			bottom: 0;
+			left: 0;
+			transform: skewY(-45deg);
+			background-color: #FFF;
+		}
+	}
+}

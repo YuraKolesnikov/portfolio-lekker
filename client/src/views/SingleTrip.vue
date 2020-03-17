@@ -30,6 +30,13 @@
 				</v-row>
 			</v-container>
 		</section>
+		<section class="map">
+			<v-container>
+				<v-row>
+					<Map />
+				</v-row>
+			</v-container>
+		</section>
 		<section class="itinerary">
 			<v-container>
 				<v-title size="md" class="mb-4">Higher level initerary</v-title>
@@ -64,6 +71,7 @@ import OrderSummary from '@/components/ui/OrderSummary/OrderSummary'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import Itinerary from '@/components/ui/Itinerary/Itinerary'
 import AccommodationPaginator from '@/components/ui/AccommodationPaginator/AccommodationPaginator'
+import Map from '@/components/TheMap/TheMap'
 export default {
 	components: {
 		Hero,
@@ -73,7 +81,8 @@ export default {
 		SearchControl,
 		AccommodationPaginator,
 		OrderSummary,
-		Itinerary
+		Itinerary,
+		Map
 	},
 	data() {
 		return {
