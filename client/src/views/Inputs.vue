@@ -1,70 +1,44 @@
 <template>
 	<v-container>
-		<v-row flow="column">
-			<div class="col-6">
-				<v-fieldset>
-					<v-label label="Your name" for="full_name"/>
-					<v-input-text id="full_name" />
-				</v-fieldset>
-			</div>
-			<div class="col-6">
-				<v-fieldset>
-					<v-label label="Email" for="email" :isRequired="true" />
-					<v-input-text :dark="true" id="email" />
-				</v-fieldset>
-			</div>
-			<div class="col-6">
-				<v-fieldset>
-					<v-label label="Select" for="select" :isRequired="true" />
-					<v-select @selectOption="selectOption" :options="options"></v-select>
-				</v-fieldset>
-			</div>
-		</v-row>
-		<h1>Datepicker</h1>
-		<v-row flow="column">
-			<div class="col-6"><BirthDatePicker /></div>
-		</v-row>
-		<h1>Country selector</h1>
-		<v-row>
-			<div class="col-4">
-				<v-select :options="countries"></v-select>
-			</div>
-		</v-row>
-		<h1>Textarea</h1>
-		<v-text-area />
-		<h1>Telephone codes</h1>
-		<v-select 
-			:options="codesFormatted" 
-			:select-value="dialCodeLabel"
-			@selectOption="updateDialCode"></v-select>
+		<swiper :options="swiperOption" ref="mySwiper">
+			<!-- slides -->
+			<swiper-slide v-for="card in bestsellers" :key="`bestseller_${card.id}`">
+				<best-seller-card :card="card" />
+			</swiper-slide>
+		</swiper>
 	</v-container>
 </template>
 <script>
-import VContainer from '@/components/hoc/VContainer'
-import VRow from '@/components/hoc/VRow'
 import VInputText from '@/components/base/VInputText/VInputText'
 import VSelect from '@/components/base/VSelect/VSelect'
 import VInputDate from '@/components/base/VInputDate/VInputDate'
 import VLabel from '@/components/base/VLabel/VLabel'
 import VFieldset from '@/components/base/VFieldset/VFieldset'
 import VTextArea from '@/components/base/VTextArea/VTextArea'
+import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
 import BirthDatePicker from '@/components/ui/BirthDatePicker/BirthDatePicker'
 import { Dater } from '@/utils/dater'
 import codes from '@/assets/data/dial-codes.json'
 export default {
 	components: {
-		VContainer,
-		VRow,
 		VInputText,
 		VInputDate,
 		VLabel,
 		VFieldset,
 		VSelect,
 		VTextArea,
+		BestSellerCard,
 		BirthDatePicker
 	},
 	data() {
 		return {
+			swiperOption: {
+				slidesPerView: 2,
+				slidesPerGroup: 2,
+				pagination: {
+          el: '.swiper-pagination'
+        }
+			},
 			selected: '',
 			dialcode: codes[0].dial_code,
 			dialCodeLabel: `${codes[0].name} (${codes[0].dial_code})`,
@@ -80,6 +54,32 @@ export default {
 				{ id: 'namibia', title: 'Namibia' },
 				{ id: 'botwsana', title: 'Botswana' },
 				{ id: 'madagascar', title: 'Madagascar' }
+			],
+			bestsellers: [
+				{ 
+					id: 1, 
+					title: 'Best of South Africa', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/kenya.png'
+				},
+				{ 
+					id: 2, 
+					title: 'Best of Namibia', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/trip-card-img.png'
+				},
+				{ 
+					id: 3, 
+					title: 'Best of South Africa', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/kenya.png'
+				},
+				{ 
+					id: 4, 
+					title: 'Best of Namibia', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/trip-card-img.png'
+				}
 			]
 		}
 	},

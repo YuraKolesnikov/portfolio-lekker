@@ -18,11 +18,12 @@
 		<section class="bestsellers">
 			<v-container>
 				<v-title size="md" class="mb-5">Or pick one of our bestsellers</v-title>
-				<v-row>
-					<div class="col-6" v-for="card in bestsellers" :key="card.id">
-						<BestSellerCard :card="card" />
-					</div>
-				</v-row>
+				<swiper :options="swiperOption" ref="mySwiper">
+					<!-- slides -->
+					<swiper-slide v-for="card in bestsellers" :key="`bestseller_${card.id}`">
+						<best-seller-card :card="card" />
+					</swiper-slide>
+				</swiper>
 			</v-container>
 		</section>
 	</div>
@@ -43,6 +44,17 @@ export default {
 	},
 	data() {
 		return {
+			swiperOption: {
+				slidesPerView: 2,
+				slidesPerGroup: 2,
+				loop: true,
+				pagination: {
+          el: '.swiper-pagination'
+        },
+				autoplay: {
+					delay: 5000
+				}
+			},
 			destinations: [
 				{ id: 'kenya', title: 'Kenya' },
 				{ id: 'tanzania', title: 'Tanzania' },
@@ -71,6 +83,18 @@ export default {
 					title: 'Best of Namibia', 
 					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
 					img_url: '/static/img/trip-card-img.png'
+				},
+				{ 
+					id: 3, 
+					title: 'Best of Botswana', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/kenya.png'
+				},
+				{ 
+					id: 4, 
+					title: 'Best of Tanzania', 
+					disclaimer: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?',
+					img_url: '/static/img/trip-card-img.png'
 				}
 			]
 		}
@@ -89,4 +113,5 @@ export default {
 	position: relative;
 	top: 80px;
 }
+
 </style>
