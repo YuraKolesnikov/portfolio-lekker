@@ -5,6 +5,7 @@
 		</a>
 		<div class="Navbar__main">
 			<v-select 
+				select-key="language"
 				:options="langs"
 				@selectOption="chooseLang"
 				:select-value="selectValue"

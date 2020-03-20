@@ -4,6 +4,7 @@
 			<div class="col-3">
 				<v-label label="Destination" for="search_destination" :isRequired="true" />
 				<v-select 
+					select-key="destination"
 					class="SearchControl__input"
 					:options="destinationOptions"
 					:select-value="searchValues.destination.title"
@@ -16,6 +17,7 @@
 			<div class="col-3">
 				<v-label label="Duration" for="search_duration" :isRequired="true" />
 				<v-select 
+					select-key="duration"
 					class="SearchControl__input"
 					:options="durationOptions"
 					:select-value="searchValues.duration.title"

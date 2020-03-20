@@ -1,11 +1,6 @@
 <template>
 	<v-container>
-		<swiper :options="swiperOption" ref="mySwiper">
-			<!-- slides -->
-			<swiper-slide v-for="card in bestsellers" :key="`bestseller_${card.id}`">
-				<best-seller-card :card="card" />
-			</swiper-slide>
-		</swiper>
+		
 	</v-container>
 </template>
 <script>

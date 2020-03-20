@@ -27,11 +27,11 @@
 			:class="{ 'Select__dropdown--open': isDropdownOpen }">
 			<ul class="Select__options" v-if="options">
 				<li 
-					class="Select__option"
-					:key="option.id || option" 
+					class="Select__option" 
+					:key="`${selectKey}_${option.id}`"
 					v-for="option in options" 
 					@click.self="selectOption(option, type)">
-					{{ option.title || option }}
+					{{ option.id }}
 				</li>
 			</ul>
 			<template v-else>
