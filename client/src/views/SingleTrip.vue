@@ -37,6 +37,12 @@
 				</v-row>
 			</v-container>
 		</section>
+		<section class="accomodation">
+			<v-container>
+				<v-title size="lg" class="mb-4">Accomodation</v-title>
+				<AccommodationPaginator :current-tab="currentTab" @updateCurrentTab="updateCurrentTab" />
+			</v-container>
+		</section>
 		<section class="itinerary">
 			<v-container>
 				<v-title size="md" class="mb-4">Higher level initerary</v-title>
@@ -47,16 +53,10 @@
 				</v-row>
 			</v-container>
 		</section>
-		<section class="accomodation">
-			<v-container>
-				<v-title size="lg" class="mb-4">Accomodation</v-title>
-				<AccommodationPaginator :current-tab="currentTab" @updateCurrentTab="updateCurrentTab" />
-			</v-container>
-		</section>
-		<v-container>
+		<v-container class="my-5">
 			<v-row>
 				<div class="col-4 offset-4">
-					<v-button size="block">Book now</v-button>
+					<v-button size="block" @click="bookTrip">Book now</v-button>
 				</div>
 			</v-row>
 		</v-container>
@@ -123,6 +123,11 @@ export default {
 	methods: {
 		updateCurrentTab(id) {
 			this.currentTab = id
+		},
+		bookTrip() {
+			/* TODO: Implement chosen safari trip _id sending to backend.
+				Send just _id to avoid price/person count changing on client */
+			this.$router.replace({ path: '/checkout' })
 		}
 	}
 }

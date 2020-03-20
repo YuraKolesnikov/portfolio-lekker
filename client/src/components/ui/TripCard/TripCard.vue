@@ -18,7 +18,7 @@
 					<span class="TripCard__duration">{{ trip.duration }} days</span>
 					<span class="TripCard__price">from $ {{ trip.price }} <span class="faded"> (per person)</span></span>
 				</div>
-				<v-router-link location="/" option="outlined">
+				<v-router-link location="/trip-details" option="outlined">
 					View details
 				</v-router-link>
 			</div>

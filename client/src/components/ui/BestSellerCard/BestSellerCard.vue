@@ -1,5 +1,6 @@
 <template>
-	<a class="BestSellerCard" :href="`/trips/${card.id}`">
+	<!-- :href="`/trips/${card.id}`" -->
+	<a class="BestSellerCard" href="/trip-details">
 		<img class="BestSellerCard__img" :src="card.img_url" />
 		<div class="BestSellerCard__body">
 			<h4 class="BestSellerCard__title">{{ card.title }}</h4>

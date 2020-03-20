@@ -22,8 +22,12 @@ const routes = [
 		component: () => import('./views/Trips')
 	},
 	{
-		path: '/single-trip',
+		path: '/trip-details',
 		component: () => import('./views/SingleTrip')
+	},
+	{
+		path: '/checkout',
+		component: () => import('./views/Checkout')
 	}
 ]
 

@@ -67,6 +67,7 @@ export default {
 			/* Check for undefined or add default */
 
 			console.log('Looking trip package with these params... ', payload)
+			this.$router.replace({ path: '/trips' })
 		},
 		updateValue(event, id) {
 			console.log(event)
