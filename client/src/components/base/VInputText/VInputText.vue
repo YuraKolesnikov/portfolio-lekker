@@ -7,7 +7,8 @@
 		@input="$emit('input', $event)"
 		@focus="$emit('focus')"
 		@blur="$emit('blur')"
-		:class="{'InputText--dark': dark}">
+		:class="{'InputText--dark': dark}"
+		:placeholder="placeholder">
 </template>
 <script>
 import { PropTypes } from './PropTypes'

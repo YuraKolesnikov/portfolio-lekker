@@ -2,6 +2,7 @@
 	<div class="BirthDatePicker">
 		<div class="BirthDatePicker__trigger">
 			<v-input-text 
+				:dark="dark"
 				id="birth-date-picker-toggle"
 				@focus="openDropdown"
 			/>
@@ -22,6 +23,7 @@
 				<div class="col-4">
 					<label for="month">Month</label>
 					<v-select 
+						select-key="month"
 						:options="months" 
 						:select-value="dateValues.month"
 						@selectOption="updateValue($event, 'month')"></v-select>
@@ -38,7 +40,7 @@
 				<v-button class="BirthDatePicker__button" option="outlined" @click="closeDropdown">
 					Cancel
 				</v-button>
-				<v-button class="BirthDatePicker__button" @click="closeDropdown">
+				<v-button class="BirthDatePicker__button" @click="saveData">
 					Accept
 				</v-button>
 			</div>
@@ -58,6 +60,10 @@ export default {
 		VButton,
 		VIcon
 	},
+	props: {
+		pickerId: String,
+		dark: Boolean
+	},
 	data() {
 		return {
 			isDropdownOpen: false,
@@ -75,7 +81,8 @@ export default {
 	},
 	methods: {
 		saveData() {
-			this.$emit('saveData')
+			this.$emit('saveData', this.dateValues, this.pickerId)
+			this.closeDropdown()
 		},
 		updateValue(event, id) {
 			/* If event was fired in custom select */

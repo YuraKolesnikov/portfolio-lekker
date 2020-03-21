@@ -9,4 +9,8 @@
 	&:focus {
 		outline: none;
 	}
+
+	&--dark {
+		background-color: $extra-light-gray;
+	}
 }

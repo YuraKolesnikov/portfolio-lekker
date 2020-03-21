@@ -5,6 +5,7 @@
 		maxlength="400"
 		class="TextArea"
 		:placeholder="placeholder"
+		:class="{'TextArea--dark': dark}"
 		@input="$emit('input', $event)">
 	</textarea>
 </template>

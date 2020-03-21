@@ -3,6 +3,7 @@
 		<div class="Select__trigger">
 			<v-input-text
 				id="select"
+				:dark="dark"
 				:style="`height: ${computedHeight}px`"
 				:value="selectValue"
 				@focus="openDropdown"
@@ -28,10 +29,10 @@
 			<ul class="Select__options" v-if="options">
 				<li 
 					class="Select__option" 
-					:key="`${selectKey}_${option.id}`"
+					:key="`${selectKey}_${option.id || option}`"
 					v-for="option in options" 
 					@click.self="selectOption(option, type)">
-					{{ option.id }}
+					{{ option.id || option }}
 				</li>
 			</ul>
 			<template v-else>
@@ -48,7 +49,9 @@ export default {
 		type: String, // calendar
 		options: Array,
 		selectValue: String,
-		computedHeight: Number
+		computedHeight: Number,
+		selectKey: String,
+		dark: Boolean
 	},
 	components: {
 		VInputText,

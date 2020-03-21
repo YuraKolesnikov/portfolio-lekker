@@ -1,5 +1,5 @@
 <template>
-	<fieldset class="Fieldset my-2">
+	<fieldset class="Fieldset mb-3">
 		<slot />
 	</fieldset>
 </template>
