@@ -2,6 +2,7 @@
 	<div class="BirthDatePicker">
 		<div class="BirthDatePicker__trigger">
 			<v-input-text 
+				:input-value="dateInUI"
 				:dark="dark"
 				id="birth-date-picker-toggle"
 				@focus="openDropdown"
@@ -71,24 +72,42 @@ export default {
 				day: '',
 				month: '',
 				year: ''
+			},
+			formData: {
+				day: '',
+				month: '',
+				year: ''
 			}
 		}
 	},
 	computed: {
 		months() {
-			return Dater.monthNames
+			const months = Dater.monthNames.map((month, i) => ({
+				title: month,
+				id: i + 1
+			}))
+			return months
+		},
+		dateInUI() {
+			return this.formData.day && this.formData.month && this.formData.year 
+			? `${this.formData.day}.${this.formData.month}.${this.formData.year}`
+			: ''
 		}
 	},
 	methods: {
 		saveData() {
-			this.$emit('saveData', this.dateValues, this.pickerId)
+			this.$emit('saveData', this.formData, this.pickerId)
 			this.closeDropdown()
 		},
 		updateValue(event, id) {
 			/* If event was fired in custom select */
-			if(!event.target) return this.dateValues[id] = event.option
+			if(!event.target) {
+				this.dateValues[id] = event.option.title
+				return this.formData[id] = event.option.id
+			}
 
 			this.dateValues[id] = event.target.value
+			this.formData[id] = event.target.value
 		},
 		openDropdown() { this.isDropdownOpen = true },
 		closeDropdown() { this.isDropdownOpen = false }

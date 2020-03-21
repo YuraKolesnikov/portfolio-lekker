@@ -72,7 +72,7 @@ export default {
 			this.$router.replace({ path: '/trips' })
 		},
 		updateValue(event, id) {
-			console.log(event)
+			console.log(event, id)
 			/* If event was fired in custom select */
 			if(!event.target) return this.searchValues[id] = event.option
 

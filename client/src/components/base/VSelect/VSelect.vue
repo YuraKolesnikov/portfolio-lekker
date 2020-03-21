@@ -29,10 +29,10 @@
 			<ul class="Select__options" v-if="options">
 				<li 
 					class="Select__option" 
-					:key="`${selectKey}_${option.id || option}`"
+					:key="`${selectKey}_${option.id}`"
 					v-for="option in options" 
 					@click.self="selectOption(option, type)">
-					{{ option.id || option }}
+					{{ option.title }}
 				</li>
 			</ul>
 			<template v-else>
