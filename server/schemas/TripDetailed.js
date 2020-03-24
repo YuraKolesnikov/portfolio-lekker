@@ -6,6 +6,7 @@ const TripDetailedSchema = new Schema({
 	rating: Number,
 	overview: Object,
 	map_url: String,
+	country: String,
 	locations: [
 		{ id: Number, coordinates: Object, title: String }
 	],

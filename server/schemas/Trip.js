@@ -3,6 +3,7 @@ const mongoose = require('mongoose'),
 
 const TripSchema = new Schema({
 	title: String,
+	country: String,
 	higlights: Array,
 	caption: String,
 	trip_id: mongoose.Schema.Types.ObjectId,

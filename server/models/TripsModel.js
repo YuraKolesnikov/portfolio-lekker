@@ -9,13 +9,21 @@ class TripsModel {
 		this.mongoService = mongoService
 	}
 
-	async getTrips() {
-		const trips = await Trip.find({})
-		return trips
+	async getTrips({ range, country }) {
+		const query = {}
+
+		if (range && range.min && range.max) {
+			query.duration = { $gte: range.min, $lte: range.max }
+		}
+
+		if (country) {
+			query.country = country
+		}
+
+		return await Trip.find(query)
 	}
 
 	async getSingleTrip(id) {
-		console.log(id)
 		console.log('Getting single trip from database...')
 		const trip = await TripDetailed.find({})
 		return trip
