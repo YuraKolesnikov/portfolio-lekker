@@ -14,7 +14,9 @@ class TripsModel {
 		return trips
 	}
 
-	async getSingleTrip() {
+	async getSingleTrip(id) {
+		console.log(id)
+		console.log('Getting single trip from database...')
 		const trip = await TripDetailed.find({})
 		return trip
 	}

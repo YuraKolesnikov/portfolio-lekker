@@ -12,8 +12,9 @@ class TripsController {
 	}
 
 	async getSingleTrip(req, res) {
-		console.log(req.params)
-		const trip = await tripsModel.getSingleTrip()
+		const { id } = req.params
+		console.log('Getting single trip...')
+		const trip = await tripsModel.getSingleTrip(id)
 		console.log(trip)
 		res.status(200).send(trip)
 	}

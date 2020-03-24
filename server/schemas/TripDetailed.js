@@ -1,12 +1,14 @@
 const mongoose = require('mongoose'),
 			Schema = mongoose.Schema
 
-const TripSchema = new Schema({
+const TripDetailedSchema = new Schema({
 	title: String,
 	rating: Number,
 	overview: Object,
 	map_url: String,
-	locations: Array,
+	locations: [
+		{ id: Number, coordinates: Object, title: String }
+	],
 	description: String,
 	trip_id: Number,
 	img_path: String,
@@ -17,4 +19,4 @@ const TripSchema = new Schema({
 	_id: mongoose.Schema.Types.ObjectId
 })
 
-module.exports = mongoose.model('trips-detailed', TripSchema)
+module.exports = mongoose.model('detailed-trips', TripDetailedSchema)
