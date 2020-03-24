@@ -2,7 +2,7 @@ const mongoose = require('mongoose'),
 			Schema = mongoose.Schema
 
 const DurationSchema = new Schema({
-	id: String,
+	id: Number,
 	title: String,
 	_id: mongoose.Schema.Types.ObjectId
 })
