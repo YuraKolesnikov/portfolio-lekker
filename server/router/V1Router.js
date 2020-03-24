@@ -3,6 +3,7 @@ const express = require('express')
 const { destinationsRouter } = require('./DestinationsRouter')
 const { durationsRouter } = require('./DurationsRouter')
 const { bestSellersRouter } = require('./BestSellersRouter')
+const { tripsRouter } = require('./TripsRouter')
 
 class V1Router {
 	constructor(router, routes) {
@@ -29,7 +30,8 @@ class V1Router {
 const routes = [
   { url: '/destinations', router: destinationsRouter },
 	{ url: '/durations', router: durationsRouter },
-	{ url: '/best-sellers', router: bestSellersRouter }
+	{ url: '/best-sellers', router: bestSellersRouter },
+	{ url: '/trips', router: tripsRouter }
 ]
 module.exports = {
 	V1Router,
