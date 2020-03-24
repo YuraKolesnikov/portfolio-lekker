@@ -1,6 +1,7 @@
 const express = require('express')
 
-const { destinationsRouter } = require('./destinationsRouter')
+const { destinationsRouter } = require('./DestinationsRouter')
+const { durationsRouter } = require('./DurationsRouter')
 
 class V1Router {
 	constructor(router, routes) {
@@ -25,7 +26,8 @@ class V1Router {
 }
 
 const routes = [
-  { url: '/destinations', router: destinationsRouter }
+  { url: '/destinations', router: destinationsRouter },
+	{ url: '/durations', router: durationsRouter }
 ]
 module.exports = {
 	V1Router,
