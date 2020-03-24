@@ -10,7 +10,6 @@ const TripDetailedSchema = new Schema({
 		{ id: Number, coordinates: Object, title: String }
 	],
 	description: String,
-	trip_id: Number,
 	img_path: String,
 	itinerary: Array,
 	accomodations: [

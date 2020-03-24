@@ -5,7 +5,7 @@ const TripSchema = new Schema({
 	title: String,
 	higlights: Array,
 	caption: String,
-	trip_id: Number,
+	trip_id: mongoose.Schema.Types.ObjectId,
 	img_path: String,
 	duration: Number,
 	_id: mongoose.Schema.Types.ObjectId

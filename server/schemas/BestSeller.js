@@ -5,7 +5,7 @@ const BestSellerSchema = new Schema({
 	/* Will be used to search in trips */
 	title: String,
 	caption: String,
-	trip_id: Number,
+	trip_id: mongoose.Schema.Types.ObjectId,
 	img_path: String,
 	_id: mongoose.Schema.Types.ObjectId
 })
