@@ -8,6 +8,7 @@
 					<div class="col-12">
 						<div class="search-control-wrapper">
 							<SearchControl 
+								@searchTrip="searchTrip"
 								:destination-options="searchControls.destinations" 
 								:duration-options="searchControls.durations" />
 						</div>
@@ -61,6 +62,13 @@ export default {
 	},
 	computed: {
 		...mapState(['destinations', 'searchControls', 'bestSellers'])
+	},
+	methods: {
+		...mapActions(['GET_TRIPS']),
+		async searchTrip(payload) {
+			this.GET_TRIPS(payload)
+			this.$router.replace({ path: '/trips' })
+		}
 	}
 }
 </script>

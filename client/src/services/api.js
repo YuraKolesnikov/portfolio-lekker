@@ -8,7 +8,7 @@ export default function api(url, queryParams = null) {
 			.then(res => res)
 			.catch(e => console.error(e)),
 
-		get: () => axios.get(url)
+		get: () => axios.get(url, queryParams)
 			.then(res => res)
 			.catch(e => console.error(e)),
 

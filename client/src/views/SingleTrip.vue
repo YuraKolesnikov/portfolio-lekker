@@ -87,6 +87,7 @@ export default {
 	},
 	async created() {
 		const { id } = this.$route.params
+		await this.GET_SINGLE_TRIP(id)
 	},
 	data() {
 		return {
@@ -128,6 +129,7 @@ export default {
 		...mapState([])
 	},
 	methods: {
+		...mapActions(['GET_SINGLE_TRIP']),
 		updateCurrentTab(id) {
 			this.currentTab = id
 		},

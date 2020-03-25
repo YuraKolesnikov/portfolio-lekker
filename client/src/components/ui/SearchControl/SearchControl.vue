@@ -70,9 +70,7 @@ export default {
 			}
 
 			/* Check for undefined or add default */
-
-			console.log('Looking trip package with these params... ', payload)
-			this.$router.replace({ path: '/trips' })
+			this.$emit('searchTrip', payload)
 		},
 		updateValue(event, id) {
 			/* If event was fired in custom select */

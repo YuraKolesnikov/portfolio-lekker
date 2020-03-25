@@ -1,4 +1,5 @@
 import api from '@/services/api'
+import { composeQueryString } from '@/utils/queryStringComposer'
 
 export default {
 	GET_DESTINATIONS: async ({ commit, state }) => {
@@ -19,5 +20,21 @@ export default {
 	GET_BEST_SELLERS: async ({ commit }) => {
 		const response = await api('/best-sellers').get()
 		commit('SET_BEST_SELLERS', response.data)
+	},
+	GET_TRIPS: async ({ commit }, payload) => {
+		const queryParams = []
+		Object.keys(payload).forEach(key => {
+			queryParams.push({ key, value: payload[key] })
+		})
+
+		const query = composeQueryString(queryParams)
+
+		const response = await api('/trips', query).get()
+		commit('SET_TRIPS', response.data)
+		console.log(response.data)
+	},
+	GET_SINGLE_TRIP: async ({ commit }, id) => {
+		const response = await api(`/trips/${id}`).get()
+		console.log(response.data)
 	}
 }
