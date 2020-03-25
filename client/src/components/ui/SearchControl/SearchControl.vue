@@ -61,7 +61,7 @@ export default {
 			const { destination, duration, passengerCount } = this.searchValues
 
 			const payload = {
-				country: destination.id,
+				destination: destination.id,
 				passenger_count: passengerCount,
 				duration: duration.id
 			}

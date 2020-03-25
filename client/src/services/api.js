@@ -4,7 +4,7 @@ import { composeQueryString } from '@/utils/queryStringComposer'
 
 export default function api(url, queryParams = null) {
 	const config = {
-		queryParams
+		params: queryParams
 	}
 
 	return {
