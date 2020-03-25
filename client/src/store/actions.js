@@ -22,19 +22,18 @@ export default {
 		commit('SET_BEST_SELLERS', response.data)
 	},
 	GET_TRIPS: async ({ commit }, payload) => {
-		const queryParams = []
+		let queryString = ''
 		Object.keys(payload).forEach(key => {
-			queryParams.push({ key, value: payload[key] })
+			if (payload[key] != '') {
+				queryString += `${key}=${payload[key]}&`
+			}
 		})
+		console.log(queryString.slice(0, -1))
 
-		const query = composeQueryString(queryParams)
-
-		const response = await api('/trips', query).get()
+		const response = await api(`/trips?${queryString}`).get()
 		commit('SET_TRIPS', response.data)
-		console.log(response.data)
 	},
 	GET_SINGLE_TRIP: async ({ commit }, id) => {
 		const response = await api(`/trips/${id}`).get()
-		console.log(response.data)
 	}
 }

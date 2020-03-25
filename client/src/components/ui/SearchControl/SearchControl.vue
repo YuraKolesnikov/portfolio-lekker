@@ -47,9 +47,6 @@ export default {
 		VButton,
 		VLabel
 	},
-	mounted() {
-		console.log(this.$props)
-	},
 	data() {
 		return {
 			searchValues: {
@@ -64,7 +61,7 @@ export default {
 			const { destination, duration, passengerCount } = this.searchValues
 
 			const payload = {
-				destination: destination.id,
+				country: destination.id,
 				passenger_count: passengerCount,
 				duration: duration.id
 			}

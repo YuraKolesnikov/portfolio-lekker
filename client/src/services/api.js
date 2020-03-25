@@ -3,12 +3,16 @@ import axios from './axios'
 import { composeQueryString } from '@/utils/queryStringComposer'
 
 export default function api(url, queryParams = null) {
+	const config = {
+		queryParams
+	}
+
 	return {
 		post: data => axios.post(url, data)
 			.then(res => res)
 			.catch(e => console.error(e)),
 
-		get: () => axios.get(url, queryParams)
+		get: () => axios.get(url, config)
 			.then(res => res)
 			.catch(e => console.error(e)),
 
