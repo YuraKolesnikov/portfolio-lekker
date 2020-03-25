@@ -2,28 +2,21 @@ import axios from './axios'
 
 import { composeQueryString } from '@/utils/queryStringComposer'
 
-export default function api(url, queryParams = null, token = null) {
-	let headers = buildHeaders(token)
-
-	const config = {
-		headers,
-		...(!queryParams ? {} : { params: buildParams(queryParams) })
-	}
-
+export default function api(url, queryParams = null) {
 	return {
-		post: data => axios.post(url, data, config)
+		post: data => axios.post(url, data)
 			.then(res => res)
 			.catch(e => console.error(e)),
 
-		get: () => axios.get(url, config)
+		get: () => axios.get(url)
 			.then(res => res)
 			.catch(e => console.error(e)),
 
-		put: data => axios.put(url, data, config)
+		put: data => axios.put(url, data)
 			.then(res => res)
 			.catch(e => console.error(e)),
 			
-		delete: () => axios.delete(url, config)
+		delete: () => axios.delete(url)
 			.then(res => res)
 			.catch(e => console.error(e))
 	}

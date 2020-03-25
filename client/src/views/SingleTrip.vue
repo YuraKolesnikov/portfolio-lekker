@@ -72,6 +72,7 @@ import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import Itinerary from '@/components/ui/Itinerary/Itinerary'
 import AccommodationPaginator from '@/components/ui/AccommodationPaginator/AccommodationPaginator'
 import Map from '@/components/TheMap/TheMap'
+import { mapActions, mapState } from 'vuex'
 export default {
 	components: {
 		Hero,
@@ -83,6 +84,9 @@ export default {
 		OrderSummary,
 		Itinerary,
 		Map
+	},
+	async created() {
+		const { id } = this.$route.params
 	},
 	data() {
 		return {
@@ -119,6 +123,9 @@ export default {
 				{ id: '', title: 'I don\'t mind' }
 			]
 		}
+	},
+	computed: {
+		...mapState([])
 	},
 	methods: {
 		updateCurrentTab(id) {

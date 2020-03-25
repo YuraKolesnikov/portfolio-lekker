@@ -1,31 +1,7 @@
 <template>
 	<div id="app">
 		<Navbar />
-		<!-- <nav style="display: flex; width: 100%; justify-content: center">
-			<router-link to="/buttons">
-				<v-button option="filled">Buttons</v-button>
-			</router-link>
-			<router-link to="/inputs">
-				<v-button option="filled">Input</v-button>
-			</router-link>
-			<router-link to="/typography">
-				<v-button option="filled">Typography</v-button>
-			</router-link>
-			<router-link to="/elements">
-				<v-button option="filled">Elements</v-button>
-			</router-link>
-		</nav> -->
 		<main>
-			<!-- <v-container>
-				<v-row>
-					<div class="col-12">
-						<AccomodationPaginator 
-							:current-tab="currentTab"
-							 />
-					</div>
-				</v-row>
-			</v-container> -->
-			<!-- <HeroStatic /> -->
 			<router-view />
 		</main>
 		<Footer />
@@ -37,6 +13,7 @@ import HeroStatic from '@/components/ui/HeroStatic/HeroStatic'
 import Navbar from '@/components/TheNavbar/TheNavbar'
 import Footer from '@/components/TheFooter/TheFooter'
 import AccomodationPaginator from '@/components/ui/AccommodationPaginator/AccommodationPaginator'
+import { mapActions } from 'vuex'
 export default {
 	components: {
 		VButton,
@@ -45,16 +22,16 @@ export default {
 		Footer,
 		AccomodationPaginator
 	},
-	data() {
-		return {
-			
-		}
+	async created() {
+		await this.GET_DESTINATIONS()
+		await this.GET_SEARCH_CONTROLS()
+		await this.GET_BEST_SELLERS()
 	},
 	methods: {
 		updateCurrentTab(id) {
-			console.log('updateCurrentTab catched!')
 			this.currentTab = id
-		}
+		},
+		...mapActions(['GET_DESTINATIONS', 'GET_SEARCH_CONTROLS', 'GET_BEST_SELLERS'])
 	}
 }
 </script>

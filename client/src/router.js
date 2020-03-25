@@ -22,7 +22,9 @@ const routes = [
 		component: () => import('./views/Trips')
 	},
 	{
+		name: 'trip-details',
 		path: '/trip-details',
+		props: true,
 		component: () => import('./views/SingleTrip')
 	},
 	{

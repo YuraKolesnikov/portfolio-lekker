@@ -3,12 +3,12 @@
 		<div class="Accordion__item" v-for="option in options" :key="option.id">
 			<div 
 				class="Accordion__toggle" 
-				:class="{'Accordion__toggle--open': show == option.id}"
-				@click="toggle(option.id)">
-				{{ option.title }}
+				:class="{'Accordion__toggle--open': show == option._id}"
+				@click="toggle(option._id)">
+				{{ option.country }}
 			</div>
-			<div class="Accordion__body" :class="{'open': show == option.id}">
-				{{ option.text }}
+			<div class="Accordion__body" :class="{'open': show == option._id}">
+				{{ option.caption }}
 			</div>
 		</div>
 	</div>
@@ -27,6 +27,7 @@ export default {
 		toggle(id) {
 			if (this.show == id) return this.show = 0
       this.show = id;
+			this.$emit('updateSlide', id)
     }
 	}
 }

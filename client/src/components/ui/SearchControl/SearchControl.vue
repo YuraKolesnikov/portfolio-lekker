@@ -47,12 +47,15 @@ export default {
 		VButton,
 		VLabel
 	},
+	mounted() {
+		console.log(this.$props)
+	},
 	data() {
 		return {
 			searchValues: {
-				destination: this.destinationOptions[0],
+				destination: '',
 				passengerCount: '',
-				duration: this.durationOptions[0]
+				duration: ''
 			}
 		}
 	},
@@ -72,7 +75,6 @@ export default {
 			this.$router.replace({ path: '/trips' })
 		},
 		updateValue(event, id) {
-			console.log(event, id)
 			/* If event was fired in custom select */
 			if(!event.target) return this.searchValues[id] = event.option
 
