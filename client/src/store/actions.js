@@ -32,5 +32,6 @@ export default {
 	},
 	GET_SINGLE_TRIP: async ({ commit }, id) => {
 		const response = await api(`/trips/${id}`).get()
+		commit('SET_SINGLE_TRIP', response.data)
 	}
 }

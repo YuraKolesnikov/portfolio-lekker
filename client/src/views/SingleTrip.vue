@@ -12,20 +12,25 @@
 			<v-container>
 				<v-row class="mb-5 align-items-center justify-content-between">
 					<div class="col-6">
-						<v-title size="lg">Best of South Africa</v-title>
+						<v-title size="lg">{{ singleTrip.title }}</v-title>
 					</div>
 					<div class="col-3">
 						<div class="stars">
-							<v-star class="mr-1" v-for="star in stars" :key="star" :id="star" :current-rating="tripRating" />
+							<v-star 
+								class="mr-1" 
+								v-for="star in 5" 
+								:key="star" 
+								:id="star" 
+								:current-rating="singleTrip.rating" />
 						</div>
 					</div>
 					<div class="col-12">
 						<v-shadow-box>
-							<OrderSummary class="mt-5" />
+							<OrderSummary :overview="singleTrip.overview" class="mt-5" />
 						</v-shadow-box>
 					</div>
 					<div class="col-12 mt-5">
-						<p class="faded">Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?</p>
+						<p class="faded">{{ singleTrip.description }}</p>
 					</div>
 				</v-row>
 			</v-container>
@@ -33,21 +38,26 @@
 		<section class="map">
 			<v-container>
 				<v-row>
-					<Map />
+					<Map 
+						:map-url="singleTrip.map_url"
+						:checkpoints="singleTrip.locations" />
 				</v-row>
 			</v-container>
 		</section>
 		<section class="accomodation">
 			<v-container>
 				<v-title size="lg" class="mb-4">Accomodation</v-title>
-				<AccommodationPaginator :current-tab="currentTab" @updateCurrentTab="updateCurrentTab" />
+				<AccommodationPaginator 
+					:accomodations="singleTrip.accomodations"
+					:current-tab="currentTab" 
+					@updateCurrentTab="updateCurrentTab" />
 			</v-container>
 		</section>
 		<section class="itinerary">
 			<v-container>
 				<v-title size="md" class="mb-4">Higher level initerary</v-title>
 				<v-row>
-					<div class="col-12" v-for="item in itinerary" :key="item.id">
+					<div class="col-12" v-for="item in singleTrip.itinerary" :key="item.id">
 						<Itinerary :itinerary="item"/>
 					</div>
 				</v-row>
@@ -126,7 +136,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapState([])
+		...mapState(['singleTrip'])
 	},
 	methods: {
 		...mapActions(['GET_SINGLE_TRIP']),

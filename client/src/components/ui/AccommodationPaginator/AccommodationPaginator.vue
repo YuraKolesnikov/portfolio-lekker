@@ -28,16 +28,12 @@
 import VStar from '@/components/base/VStar/VStar'
 export default {
 	props: {
-		currentTab: Number
+		currentTab: Number,
+		accomodations: Array
 	},
 	data() {
 		return {
-			tabs: [5, 4, 3],
-			accomodations: [
-				{ id: 1, rating: 5, title: 'Kameelperd Laagte Zebula', description: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?  Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?', img_path: 'static/img/accomodation.png' },
-				{ id: 2, rating: 4, title: 'Kameelperd Laagte Zebula', description: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?  Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?', img_path: 'static/img/accomodation.png' },
-				{ id: 3, rating: 3, title: 'Kameelperd Laagte Zebula', description: 'Want something to blow your mind? Imagine a thousand flamingos standing at the side of Kenya’s Lake Nakuru. Or 15,000m2 of rolling savannah in the Serengeti. Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?  Or why not explore the aromatic plantations of Zanzibar, famous for its coconut palm beaches and snorkelling in the Indian Ocean?', img_path: 'static/img/accomodation.png' }
-			]
+			tabs: [5, 4, 3]
 		}
 	},
 	components: {
