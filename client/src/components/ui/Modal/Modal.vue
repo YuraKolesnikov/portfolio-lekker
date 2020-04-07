@@ -2,9 +2,9 @@
 	<div 
 		class="Modal" 
 		:class="{'is-visible': isModalOpen}"
-		@click.self="registerClickOutside">
+		@click.self="closeModal">
 		<div class="Modal__main">
-			<!-- TODO: Add button -->
+			<button class="Modal__close-button" @click="closeModal">&times;</button>
 			<slot/>
 		</div>
 	</div>
@@ -15,8 +15,7 @@ export default {
 		isModalOpen: Boolean
 	},
 	methods: {
-		registerClickOutside() {
-			console.log('Captured outside click in Modal...')
+		closeModal() {
 			this.$emit('closeModal')
 		}
 	}
