@@ -27,17 +27,6 @@
 				</swiper>
 			</v-container>
 		</section>
-		<Modal :is-modal-open="isCallbackModalOpen" @closeModal="closeModal">
-			<v-row class="no-gutter align-items-end">
-				<div class="col-8">
-					<v-label label="Phone number" for="phone" :isRequired="true" />
-					<v-input-text id="phone" @input="updatePhoneNumber" />
-				</div>
-				<div class="col-4">
-					<v-button @click="requestCallback">Send</v-button>
-				</div>
-			</v-row>
-		</Modal>
 	</div>
 </template>
 <script>
@@ -45,23 +34,15 @@ import Hero from '@/components/ui/HeroStatic/HeroStatic'
 import DestinationsSelector from '@/components/ui/DestinationsSelector/DestinationsSelector'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import VTitle from '@/components/base/VTitle/VTitle'
-import VLabel from '@/components/base/VLabel/VLabel'
-import VButton from '@/components/base/VButton/VButton'
-import VInputText from '@/components/base/VInputText/VInputText'
+
 import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
-import Modal from '@/components/ui/Modal/Modal'
 import { mapActions, mapState, mapMutations } from 'vuex'
-import { EventBus } from '@/utils/EventBus'
 export default {
 	components: {
 		Hero,
-		Modal,
 		DestinationsSelector,
 		SearchControl,
 		VTitle,
-		VLabel,
-		VButton,
-		VInputText,
 		BestSellerCard
 	},
 	data() {
@@ -76,16 +57,8 @@ export default {
 				autoplay: {
 					delay: 5000
 				}
-			},
-			phone_number: '',
-			isCallbackModalOpen: false
+			}
 		}
-	},
-	mounted() {
-		EventBus.$on('openModal', this.openModal);
-	},
-	beforeDestroy() {
-		EventBus.$off('openModal');
 	},
 	computed: {
 		...mapState(['destinations', 'searchControls', 'bestSellers'])
@@ -95,20 +68,6 @@ export default {
 		async searchTrip(payload) {
 			this.GET_TRIPS(payload)
 			this.$router.replace({ path: '/trips' })
-		},
-		updatePhoneNumber(e) {
-			this.phone_number = e.target.value
-		},
-		requestCallback() {
-			this.closeModal()
-			/* TODO: Make a request for callback */
-			console.log({ phone_number: this.phone_number })
-		},
-		openModal() {
-			this.isCallbackModalOpen = true
-		},
-		closeModal() {
-			this.isCallbackModalOpen = false
 		}
 	}
 }
