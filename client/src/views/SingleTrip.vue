@@ -24,11 +24,6 @@
 								:current-rating="singleTrip.rating" />
 						</div>
 					</div>
-					<div class="col-12">
-						<v-shadow-box>
-							<OrderSummary :overview="singleTrip.overview" class="mt-5" />
-						</v-shadow-box>
-					</div>
 					<div class="col-12 mt-5">
 						<p class="faded">{{ singleTrip.description }}</p>
 					</div>
