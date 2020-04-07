@@ -1,0 +1,29 @@
+.Modal {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	z-index: -100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba($color: #000000, $alpha: .35);
+	transition: opacity .5s ease;
+
+	&.is-visible {
+		opacity: 1;
+		z-index: 12;
+	}
+
+	.Modal__main {
+		position: relative;
+		z-index: 10;
+		width: 25%;
+		margin: auto;
+		min-height: 200px;
+		border-radius: 5px;
+		background-color: #FFF;
+	}
+}

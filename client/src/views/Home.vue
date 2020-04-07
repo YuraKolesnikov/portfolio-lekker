@@ -27,6 +27,7 @@
 				</swiper>
 			</v-container>
 		</section>
+		<Modal :is-modal-open="isCallbackModalOpen" @closeModal="closeModal"></Modal>
 	</div>
 </template>
 <script>
@@ -35,11 +36,13 @@ import DestinationsSelector from '@/components/ui/DestinationsSelector/Destinati
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import VTitle from '@/components/base/VTitle/VTitle'
 import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
+import Modal from '@/components/ui/Modal/Modal'
 import { mapActions, mapState, mapMutations } from 'vuex'
-
+import { EventBus } from '@/utils/EventBus'
 export default {
 	components: {
 		Hero,
+		Modal,
 		DestinationsSelector,
 		SearchControl,
 		VTitle,
@@ -57,8 +60,15 @@ export default {
 				autoplay: {
 					delay: 5000
 				}
-			}
+			},
+			isCallbackModalOpen: false
 		}
+	},
+	mounted() {
+		EventBus.$on('openModal', this.openModal);
+	},
+	beforeDestroy() {
+		EventBus.$off('openModal');
 	},
 	computed: {
 		...mapState(['destinations', 'searchControls', 'bestSellers'])
@@ -68,6 +78,13 @@ export default {
 		async searchTrip(payload) {
 			this.GET_TRIPS(payload)
 			this.$router.replace({ path: '/trips' })
+		},
+		openModal() {
+			console.log('Captured event in Home...')
+			this.isCallbackModalOpen = true
+		},
+		closeModal() {
+			this.isCallbackModalOpen = false
 		}
 	}
 }
