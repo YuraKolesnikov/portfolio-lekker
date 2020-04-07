@@ -22,7 +22,6 @@ export default {
 		chooseDate(e) {
 			e.preventDefault();
 			e.stopPropagation()
-			console.log(e.target.textContent)
 		}
 	}
 }

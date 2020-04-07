@@ -44,7 +44,6 @@ export default {
 			this.chosenLang = res.option.id
 		},
 		openModal() {
-			console.log('Emitting event in Navbar...')
 			EventBus.$emit('openModal')
 		}
 	}

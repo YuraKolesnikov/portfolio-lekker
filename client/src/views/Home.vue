@@ -27,7 +27,17 @@
 				</swiper>
 			</v-container>
 		</section>
-		<Modal :is-modal-open="isCallbackModalOpen" @closeModal="closeModal"></Modal>
+		<Modal :is-modal-open="isCallbackModalOpen" @closeModal="closeModal">
+			<v-row class="no-gutter align-items-end">
+				<div class="col-8">
+					<v-label label="Phone number" for="phone" :isRequired="true" />
+					<v-input-text id="phone" @input="updatePhoneNumber" />
+				</div>
+				<div class="col-4">
+					<v-button @click="requestCallback">Send</v-button>
+				</div>
+			</v-row>
+		</Modal>
 	</div>
 </template>
 <script>
@@ -35,6 +45,9 @@ import Hero from '@/components/ui/HeroStatic/HeroStatic'
 import DestinationsSelector from '@/components/ui/DestinationsSelector/DestinationsSelector'
 import SearchControl from '@/components/ui/SearchControl/SearchControl'
 import VTitle from '@/components/base/VTitle/VTitle'
+import VLabel from '@/components/base/VLabel/VLabel'
+import VButton from '@/components/base/VButton/VButton'
+import VInputText from '@/components/base/VInputText/VInputText'
 import BestSellerCard from '@/components/ui/BestSellerCard/BestSellerCard'
 import Modal from '@/components/ui/Modal/Modal'
 import { mapActions, mapState, mapMutations } from 'vuex'
@@ -46,6 +59,9 @@ export default {
 		DestinationsSelector,
 		SearchControl,
 		VTitle,
+		VLabel,
+		VButton,
+		VInputText,
 		BestSellerCard
 	},
 	data() {
@@ -61,6 +77,7 @@ export default {
 					delay: 5000
 				}
 			},
+			phone_number: '',
 			isCallbackModalOpen: false
 		}
 	},
@@ -79,8 +96,15 @@ export default {
 			this.GET_TRIPS(payload)
 			this.$router.replace({ path: '/trips' })
 		},
+		updatePhoneNumber(e) {
+			this.phone_number = e.target.value
+		},
+		requestCallback() {
+			this.closeModal()
+			/* TODO: Make a request for callback */
+			console.log({ phone_number: this.phone_number })
+		},
 		openModal() {
-			console.log('Captured event in Home...')
 			this.isCallbackModalOpen = true
 		},
 		closeModal() {
